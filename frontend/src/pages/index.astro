@@ -1,9 +1,11 @@
 ---
-import Header from '../components/Header.astro';
-import Layout from '../layouts/Layout.astro';
-
+import Header from '@/components/common/Header.astro';
+import HeroSection from '@/components/sections/Hero/HeroSection.astro';
+import SubjectSection from '@/components/sections/Subject/SubjectSection.astro';
+import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout>
-	<Header />
+  <HeroSection />
+  <SubjectSection />
 </Layout>

@@ -1,1 +1,48 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@theme {
+  /* 🎨 Colores base */
+  --color-primary: #ffd100; /* Botones principales, enlaces, énfasis */
+  --color-primary-foreground: #000000; /* Texto o íconos sobre primario */
+
+  --color-secondary: #1e293b; /* Elementos secundarios: cards, fondos alternos */
+  --color-secondary-foreground: #ffffff; /* Texto sobre secundario */
+
+  --color-accent: #ff9800; /* Destacar secciones o botones alternativos */
+  --color-accent-foreground: #000000;
+
+  --color-muted: #374151; /* Elementos de UI suaves, como fondos de inputs */
+  --color-muted-foreground: #9ca3af; /* Texto suave: placeholders, descripciones */
+
+  --color-border: #4b5563; /* Bordes de inputs, separadores */
+  --color-ring: var(--color-primary); /* Enfasis focus (e.g., focus-visible) */
+
+  /* 🧱 Backgrounds */
+  --color-background: #0f172a; /* Fondo general de la app (Slate 900) */
+  --color-surface: #1e293b; /* Superficies elevadas: tarjetas, modales */
+
+  /* 📝 Texto */
+  --color-foreground: #f8fafc; /* Texto principal */
+  --color-foreground-secondary: #cbd5e1; /* Texto secundario */
+  --color-foreground-muted: #94a3b8; /* Texto menos importante / desactivado */
+
+  /* 🧱 UI neutra / tarjetas / inputs */
+  --color-muted: #f4f4f5; /* Fondo de elementos secundarios: tarjetas, inputs */
+  --color-muted-foreground: #4b5563; /* Texto sobre elementos muted */
+  --color-border: #e5e7eb; /* Bordes suaves de inputs, tarjetas, etc. */
+  --color-input: #ffffff; /* Fondo de inputs */
+  --color-input-placeholder: #9ca3af; /* Placeholder en campos de texto */
+
+  /* 🧨 Estados de error / éxito / alerta */
+  --color-error: #dc2626; /* Rojo para errores */
+  --color-error-foreground: #ffffff;
+
+  --color-success: #16a34a; /* Verde para éxito */
+  --color-success-foreground: #ffffff;
+
+  --color-warning: #f59e0b; /* Amarillo para advertencias */
+  --color-warning-foreground: #000000;
+
+  ---font-rubik: Rubik, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
