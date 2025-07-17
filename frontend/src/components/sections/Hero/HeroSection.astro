@@ -1,0 +1,33 @@
+---
+import ContainerSection from '@/components/common/ContainerSection.astro';
+---
+
+<ContainerSection id='hero' className='flex justify-center items-center py-28 '>
+  <div class='mx-auto max-w-5xl text-center'>
+    <h1 class='text-4xl font-bold text-foreground sm:text-5xl'>
+      Explora las Materias de
+      <strong class='text-primary'> tu Carrera </strong>
+    </h1>
+
+    <p class='mt-4 text-base text-pretty text-foreground-muted sm:text-lg/relaxed'>
+      Filtra por carrera, año, modalidad o correlativas y accede a resumenes, paraciale, finales,
+      programas y mas. Todo en un solo lugar, hecho por y para estudiantes
+    </p>
+
+    <div class='mt-8 flex justify-center gap-4 sm:mt-6 flex-col md:flex-row'>
+      <a
+        class='inline-block rounded-xl border border-primary bg-primary px-5 py-3 font-bold text-black shadow-sm transition-colors hover:bg-white'
+        href='#'
+      >
+        Explorar Materias
+      </a>
+
+      <a
+        class='inline-block rounded-xl border border-gray-200 px-5 py-3 font-medium text-foreground shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900'
+        href='#'
+      >
+        Subir un Aporte
+      </a>
+    </div>
+  </div>
+</ContainerSection>

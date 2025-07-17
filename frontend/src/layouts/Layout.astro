@@ -1,22 +1,25 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import Header from '@/components/common/Header.astro';
+import '@/styles/global.css';
+import '@fontsource-variable/rubik';
+import Footer from '@/components/common/Footer.astro';
+import ContainerPage from '@/components/common/ContainerPage.astro';
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Exactamente</title>
+  </head>
+  <body class='font-rubik bg-primary-foreground'>
+    <ContainerPage>
+      <Header />
+      <slot />
+      <Footer />
+    </ContainerPage>
+  </body>
+</html>
