@@ -3,7 +3,7 @@
 @theme {
   /* 🎨 Colores base */
   --color-primary: #ffd100; /* Botones principales, enlaces, énfasis */
-  --color-primary-foreground: #000000; /* Texto o íconos sobre primario */
+  --color-primary-foreground: #111; /* Texto o íconos sobre primario */
 
   --color-secondary: #1e293b; /* Elementos secundarios: cards, fondos alternos */
   --color-secondary-foreground: #ffffff; /* Texto sobre secundario */
@@ -14,7 +14,6 @@
   --color-muted: #374151; /* Elementos de UI suaves, como fondos de inputs */
   --color-muted-foreground: #9ca3af; /* Texto suave: placeholders, descripciones */
 
-  --color-border: #4b5563; /* Bordes de inputs, separadores */
   --color-ring: var(--color-primary); /* Enfasis focus (e.g., focus-visible) */
 
   /* 🧱 Backgrounds */
@@ -26,12 +25,12 @@
   --color-foreground-secondary: #cbd5e1; /* Texto secundario */
   --color-foreground-muted: #94a3b8; /* Texto menos importante / desactivado */
 
-  /* 🧱 UI neutra / tarjetas / inputs */
-  --color-muted: #f4f4f5; /* Fondo de elementos secundarios: tarjetas, inputs */
-  --color-muted-foreground: #4b5563; /* Texto sobre elementos muted */
-  --color-border: #e5e7eb; /* Bordes suaves de inputs, tarjetas, etc. */
-  --color-input: #ffffff; /* Fondo de inputs */
-  --color-input-placeholder: #9ca3af; /* Placeholder en campos de texto */
+  /* 🧱 UI neutra / tarjetas / inputs (modo oscuro) */
+  --color-muted: #1f2937; /* Fondo oscuro para elementos secundarios: tarjetas, inputs (Slate 800) */
+  --color-muted-foreground: #ffd100; /* Texto claro y con contraste amarillo primario para destacar sobre muted */
+  --color-border: #4b4f1d; /* Bordes en tono oscuro tirando a oliva para armonizar con amarillo */
+  --color-input: #111827; /* Fondo de inputs oscuro (Slate 900) */
+  --color-input-placeholder: #a89f48; /* Placeholder en tono amarillo pálido para buen contraste */
 
   /* 🧨 Estados de error / éxito / alerta */
   --color-error: #dc2626; /* Rojo para errores */

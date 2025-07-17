@@ -1,4 +1,4 @@
-<header class='fixed left-1/2 -translate-x-1/2 top-0 z-50 w-full filter'>
+<header class='fixed left-1/2 -translate-x-1/2 top-0 z-50 w-full filter backdrop-blur-xl'>
   <div class='relative w-full max-w-6xl 2xl:max-w-8xl mx-auto px-4 sm:px-10 md:px-12 lg:px-0'>
     <div class='flex h-16 items-center justify-between'>
       <div class='md:flex md:items-center md:gap-12'>
@@ -12,15 +12,21 @@
         </a>
       </div>
 
-      <div class='hidden md:block'>
+      <div class='hidden md:block absolute left-1/2 -translate-x-1/2'>
         <nav aria-label='Global'>
           <ul class='flex items-center gap-6 text-sm'>
             <li>
-              <a class='text-gray-500 transition hover:text-gray-500/75' href='#'> Materias </a>
+              <a class='text-foreground transition hover:text-foreground/75' href='#'> Materias </a>
             </li>
 
             <li>
-              <a class='text-gray-500 transition hover:text-gray-500/75' href='#'> Carreras </a>
+              <a class='text-foreground transition hover:text-foreground/75' href='#'> Carreras </a>
+            </li>
+
+            <li>
+              <a class='text-foreground transition hover:text-foreground/75' href='#'>
+                correlativas
+              </a>
             </li>
           </ul>
         </nav>
@@ -29,7 +35,7 @@
       <div class='flex items-center gap-4'>
         <div class='sm:flex sm:gap-4'>
           <a
-            class='rounded-md bg-primary px-5 py-2.5 text-sm font-bold text-black shadow-sm'
+            class='rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-black shadow-sm'
             href='#'
           >
             Subir Aporte
@@ -38,7 +44,7 @@
 
         <div class='block md:hidden'>
           <button
-            class='rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75'
+            class='mobile-menu-button rounded-xl bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -56,4 +62,38 @@
       </div>
     </div>
   </div>
+
+  <div class='mobile-menu hidden md:hidden rounded-xl overflow-hidden'>
+    <div class='px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-accent-foreground border-t'>
+      <a
+        href='#inicio'
+        class='text-foreground hover:text-primary-600 block px-3 py-2 rounded-md text-base font-bold'
+        >Inicio</a
+      >
+      <a
+        href='#servicios'
+        class='text-foreground hover:text-primary-600 block px-3 py-2 rounded-md text-base font-bold'
+        >Servicios</a
+      >
+      <a
+        href='#nosotros'
+        class='text-foreground hover:text-primary-600 block px-3 py-2 rounded-md text-base font-bold'
+        >Nosotros</a
+      >
+      <a
+        href='#contacto'
+        class='text-foreground hover:text-primary-600 block px-3 py-2 rounded-md text-base font-bold'
+        >Contacto</a
+      >
+    </div>
+  </div>
 </header>
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

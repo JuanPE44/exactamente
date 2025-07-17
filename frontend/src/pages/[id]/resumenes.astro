@@ -1,0 +1,21 @@
+---
+import ContainerSection from '@/components/common/ContainerSection.astro';
+import { materias } from '@/data/subjects';
+import Layout from '@/layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  return materias.map((materia) => ({
+    params: { id: materia.slug },
+  }));
+}
+
+const { id } = Astro.params;
+---
+
+<Layout>
+  <ContainerSection id='hero'>
+    <h2 class='text-foreground text-2xl font-bold'>Resumenes {id}</h2>
+    <a class='text-foreground' href={`/${id}/parciales`}>Ver parciales</a>
+    <a class='text-foreground' href={`/${id}/finales`}>Ver finales</a>
+  </ContainerSection>
+</Layout>
