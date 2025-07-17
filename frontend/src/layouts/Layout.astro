@@ -16,6 +16,9 @@ import ContainerPage from '@/components/common/ContainerPage.astro';
     <title>Exactamente</title>
   </head>
   <body class='font-rubik bg-primary-foreground'>
+    <img src='/src/assets/fondo.png' class='absolute w-full h-full top-0 object-cover' />
+    <div class='fade-bottom'></div>
+
     <ContainerPage>
       <Header />
       <slot />
@@ -23,3 +26,15 @@ import ContainerPage from '@/components/common/ContainerPage.astro';
     </ContainerPage>
   </body>
 </html>
+
+<style>
+  .fade-bottom {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, #111);
+  }
+</style>
