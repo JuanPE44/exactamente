@@ -259,21 +259,21 @@ export const DATABASE = {
           id: 'inteligencia-artificial',
           title: 'Inteligencia Artificial',
           url: '/inteligencia-artificial',
-          quadmester: 'N/A', // Podría ser una optativa sin cuatrimestre fijo o indicar "Electiva"
+          quadmester: 0, // Podría ser una optativa sin cuatrimestre fijo o indicar "Electiva"
           year: 5, // Asumo 5to año, puedes ajustarlo si sabes el cuatrimestre exacto
         },
         {
           id: 'etica-y-legislacion-de-la-practica-profesional',
           title: 'Ética y Legislación de la Práctica Profesional',
           url: '/etica-y-legislacion-de-la-practica-profesional',
-          quadmester: 'N/A',
+          quadmester: 0,
           year: 5,
         },
         {
           id: 'practica-profesional-supervisada-y-proyecto-integrador',
           title: 'Práctica Profesional Supervisada y Proyecto Integrador',
           url: '/practica-profesional-supervisada-y-proyecto-integrador',
-          quadmester: 'N/A',
+          quadmester: 0,
           year: 5,
         },
       ],
