@@ -1,15 +1,16 @@
 ---
 import ContainerSection from '@/components/common/ContainerSection.astro';
-import { materias } from '@/data/subjects';
+import { DATABASE } from '@/data/database';
 import Layout from '@/layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  return materias.map((materia) => ({
-    params: { id: materia.slug },
+  return DATABASE.careers[0].subjects.map((materia) => ({
+    params: { id: materia.id },
   }));
 }
 
 const { id } = Astro.params;
+const subject = DATABASE.careers[0].subjects.filter((subject) => subject.id == id);
 ---
 
 <Layout>

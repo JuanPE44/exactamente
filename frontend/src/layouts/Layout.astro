@@ -15,10 +15,21 @@ import ContainerPage from '@/components/common/ContainerPage.astro';
     <meta name='generator' content={Astro.generator} />
     <title>Exactamente</title>
   </head>
-  <body class='font-rubik bg-primary-foreground'>
-    <img src='/src/assets/fondo.png' class='absolute w-full h-full top-0 object-cover' />
-    <div class='fade-bottom'></div>
-
+  <body class='font-rubik bg-primary-foreground relative scroll-smooth'>
+    <div class='absolute w-full h-screen top-0'>
+      <img src='/src/assets/images/fondo.png' class='object-left w-full h-full object-cover' />
+      <div
+        class='absolute -bottom-6 w-full h-96 bg-gradient-to-b from-transparent to-primary-foreground'
+      >
+      </div>
+    </div>
+    <div class='absolute w-full h-screen bottom-0'>
+      <img src='/src/assets/images/fondo.png' class='object-left w-full h-full object-cover' />
+      <div
+        class='absolute -top-6 w-full h-96 bg-gradient-to-b to-transparent from-primary-foreground'
+      >
+      </div>
+    </div>
     <ContainerPage>
       <Header />
       <slot />
@@ -26,15 +37,3 @@ import ContainerPage from '@/components/common/ContainerPage.astro';
     </ContainerPage>
   </body>
 </html>
-
-<style>
-  .fade-bottom {
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    pointer-events: none;
-    background: linear-gradient(to bottom, transparent, #111);
-  }
-</style>

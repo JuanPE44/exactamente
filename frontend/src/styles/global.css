@@ -3,9 +3,9 @@
 @theme {
   /* 🎨 Colores base */
   --color-primary: #ffd100; /* Botones principales, enlaces, énfasis */
-  --color-primary-foreground: #111; /* Texto o íconos sobre primario */
+  --color-primary-foreground: #050505; /* Texto o íconos sobre primario */
 
-  --color-secondary: #1e293b; /* Elementos secundarios: cards, fondos alternos */
+  --color-secondary: #1e40af; /* Elementos secundarios: cards, fondos alternos */
   --color-secondary-foreground: #ffffff; /* Texto sobre secundario */
 
   --color-accent: #ff9800; /* Destacar secciones o botones alternativos */
@@ -44,4 +44,26 @@
 
   ---font-rubik: Rubik, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-juan {
+  background: linear-gradient(89.81deg, red, orange, yellow, lightgreen, lightblue, violet);
+  fill: linear-gradient(89.81deg, red, orange, yellow, lightgreen, lightblue, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-size: 300%;
+  animation: gradientText 2s ease alternate-reverse infinite;
 }

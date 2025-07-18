@@ -16,17 +16,32 @@ import ContainerSection from '@/components/common/ContainerSection.astro';
 
     <div class='mt-8 flex justify-center gap-4 sm:mt-6 flex-col md:flex-row'>
       <a
-        class='inline-block rounded-xl border border-primary bg-primary px-5 py-3 font-bold text-black shadow-sm transition-colors hover:bg-white'
-        href='#'
+        class='flex items-center gap-2 duration-200 hover:scale-105 rounded-xl border border-primary bg-primary px-5 py-3 font-bold text-black shadow-sm transition-colors hover:sepia-50'
+        href='./#subject'
       >
-        Explorar Materias
+        <svg width='20' height='20' viewBox='0 0 24 24'>
+          <path
+            class='stroke-black'
+            fill='none'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314'></path>
+        </svg>
+        <span> Explorar Materias </span>
       </a>
 
       <a
-        class='inline-block rounded-xl border border-gray-200 px-5 py-3 font-medium text-foreground shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900'
+        class='flex items-center gap-2 hover:scale-105 duration-200 rounded-xl border border-gray-200 px-5 py-3 font-medium text-foreground shadow-sm transition-colors hover:sepia-50'
         href='#'
       >
-        Subir un Aporte
+        <svg width='20' height='20' viewBox='0 0 24 24'
+          ><path
+            fill='currentColor'
+            d='m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z'
+          ></path></svg
+        >
+        <span> Subir un Aporte </span>
       </a>
     </div>
   </div>
