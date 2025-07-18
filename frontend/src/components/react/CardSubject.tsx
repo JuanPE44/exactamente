@@ -1,3 +1,7 @@
+import IconOpenBook from '@/assets/icons/react/IconOpenBook';
+import IconPaper from '@/assets/icons/react/IconPaper';
+import IconUniversity from '@/assets/icons/react/IconUniversity';
+
 type Props = {
   id: string;
   title: string;
@@ -50,21 +54,26 @@ export default function Card({ id, title, url, quadmester, year }: Props) {
 
           <div className='grid grid-cols-3 gap-3 w-full'>
             {/* Resúmenes */}
-            <button className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border-2 border-emerald-500/40 hover:border-emerald-400/60 text-emerald-200 hover:text-emerald-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'>
+            <button className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border-2 border-emerald-500/40 hover:border-emerald-400/60 text-emerald-200 hover:text-emerald-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'>
+              <IconOpenBook className='fill-[currentColor]' />
               <span className='text-sm group-hover/resource:font-bold transition-all'>
                 Resúmenes
               </span>
             </button>
 
             {/* Parciales */}
-            <button className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-blue-500/20 to-blue-600/10 border-2 border-blue-500/40 hover:border-blue-400/60 text-blue-200 hover:text-blue-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'>
+            <button className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-blue-500/20 to-blue-600/10 border-2 border-blue-500/40 hover:border-blue-400/60 text-blue-200 hover:text-blue-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'>
+              <IconPaper className='fill-[currentColor]' />
+
               <span className='text-sm group-hover/resource:font-bold transition-all'>
                 Parciales
               </span>
             </button>
 
             {/* Finales */}
-            <button className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-purple-500/20 to-purple-600/10 border-2 border-purple-500/40 hover:border-purple-400/60 text-purple-200 hover:text-purple-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'>
+            <button className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-purple-500/20 to-purple-600/10 border-2 border-purple-500/40 hover:border-purple-400/60 text-purple-200 hover:text-purple-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'>
+              <IconUniversity className='fill-[currentColor]' />
+
               <span className='text-sm group-hover/resource:font-bold transition-all'>Finales</span>
             </button>
           </div>

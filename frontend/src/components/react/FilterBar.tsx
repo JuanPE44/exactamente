@@ -1,5 +1,5 @@
 import { CARRERS_FILTER, QUADMESTERS_FILTER, YEARS_FILTER } from '@/constants/Filter';
-import type { PropsFilterBar } from '@/types/Filter';
+import type { PropsFilterBar } from '@/types/filter';
 import React from 'react';
 
 const FilterBar: React.FC<PropsFilterBar> = ({ filters, setFilters }) => {
@@ -10,7 +10,7 @@ const FilterBar: React.FC<PropsFilterBar> = ({ filters, setFilters }) => {
           className='relative w-full bg-zinc-900 flex justify-between items-center gap-2 border border-zinc-700 rounded-xl  transition-all duration-200'
           tabIndex={0}
         >
-          <div className='px-4 py-2 flex items-center'>
+          <div className='px-4 py-2 flex items-center w-full'>
             <svg width='20' height='20' className='mr-2' viewBox='0 0 24 24'>
               <path
                 className='stroke-foreground-muted'

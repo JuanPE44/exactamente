@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { DATABASE } from '@/data/database';
 import { normalizeText } from '@/lib/normalizeText';
 import { INITIAL_FILTERS } from '@/constants/Filter';
-import type { Filter } from '@/types/Filter';
+import type { Filter } from '@/types/filter';
 
 import ListOfSubjects from './ListOfSubjects';
 import FilterBar from './FilterBar';

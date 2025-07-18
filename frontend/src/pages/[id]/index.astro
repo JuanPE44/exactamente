@@ -1,5 +1,5 @@
 ---
-import ContainerSection from '@/components/common/ContainerSection.astro';
+import SubjectSection from '@/components/sections/Subject/SubjectSection.astro';
 import { DATABASE } from '@/data/database';
 import Layout from '@/layouts/Layout.astro';
 
@@ -14,9 +14,5 @@ const subject = DATABASE.careers[0].subjects.filter((subject) => subject.id == i
 ---
 
 <Layout>
-  <ContainerSection id='hero'>
-    <h2 class='text-foreground text-xl font-bold'>Materia {id}</h2>
-    <a class='text-foreground' href={`/${id}/parciales`}>Ver parciales</a>
-    <a class='text-foreground' href={`/${id}/finales`}>Ver finales</a>
-  </ContainerSection>
+  <SubjectSection subject={subject[0]} />
 </Layout>

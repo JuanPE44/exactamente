@@ -6,6 +6,7 @@ interface Props {
 const { id, className = 'py-20 md:py-28' } = Astro.props;
 ---
 
-<section id={id} class={`relative w-full md:min-h-screen ${className}`}>
+<section class={`relative w-full md:min-h-screen ${className}`}>
+  <span id={id} class='absolute -top-20'></span>
   <slot />
 </section>

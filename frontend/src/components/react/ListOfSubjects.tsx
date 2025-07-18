@@ -1,5 +1,5 @@
 import Card from './CardSubject';
-import type { PropsListOfSubjects } from '@/types/Filter';
+import type { PropsListOfSubjects } from '@/types/filter';
 
 function ListOfSubjects({ subjects, setFilters }: PropsListOfSubjects) {
   return (

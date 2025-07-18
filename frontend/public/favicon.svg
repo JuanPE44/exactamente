@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 640 640">
-  <rect x="0" y="0" width="640" height="640" rx="75" ry="75" fill="#ffd100" />
+  <rect x="0" y="0" width="640" height="640" rx="200" ry="200" fill="#ffd100" />
 
   <g transform="translate(30,64) scale(0.9)">
     <path
