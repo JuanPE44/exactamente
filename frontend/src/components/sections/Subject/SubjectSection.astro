@@ -1,12 +1,8 @@
 ---
 import ContainerSection from '@/components/common/ContainerSection.astro';
-import CardSubject from './CardSubject.astro';
+import SubjectsView from '@/components/react/SubjectsView';
 ---
 
-<ContainerSection id='subject'>
-  <div class='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8'>
-    <CardSubject />
-    <CardSubject />
-    <CardSubject />
-  </div>
+<ContainerSection id='subject' className='pb-30'>
+  <SubjectsView client:load />
 </ContainerSection>
