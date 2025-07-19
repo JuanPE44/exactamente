@@ -1,0 +1,36 @@
+---
+import { type TypeResource } from '@/types/resource';
+import Resource from './Resource.astro';
+import ContainerLink from './ContainerLink.astro';
+import IconDocument from '@/assets/icons/IconDocument.astro';
+
+interface Props {
+  resources: TypeResource[];
+}
+const { resources } = Astro.props;
+---
+
+<div class='grid grid-cols-1 gap-4 mt-4'>
+  {
+    resources.map((resource) => {
+      const { date, downloads, from, mostRecent, size, title, type } = resource;
+      return (
+        <Resource
+          date={date}
+          downloads={downloads}
+          from={from}
+          mostRecent={mostRecent}
+          size={size}
+          title={title}
+          type={type}
+        />
+      );
+    })
+  }
+  <ContainerLink url='' class='border border-accent text-foreground w-max mx-auto mt-10 font-bold'>
+    <div class='flex gap-2 items-center'>
+      <IconDocument size={20} />
+      <span> Subir nuevo parcial </span>
+    </div>
+  </ContainerLink>
+</div>
