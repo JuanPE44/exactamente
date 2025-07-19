@@ -1,1 +1,16 @@
-<section></section>
+---
+import SubjectSection from '@/components/sections/Subject/SubjectSection.astro';
+import { DATABASE } from '@/data/database';
+import Layout from '@/layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  return DATABASE.careers[0].subjects.map((materia) => ({
+    params: { id: materia.id },
+  }));
+}
+
+const { id } = Astro.params;
+const subject = DATABASE.careers[0].subjects.filter((subject) => subject.id == id);
+---
+
+<Layout />
