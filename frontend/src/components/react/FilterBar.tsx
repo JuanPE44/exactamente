@@ -1,35 +1,8 @@
+import { CARRERS_FILTER, QUADMESTERS_FILTER, YEARS_FILTER } from '@/constants/Filter';
+import type { PropsFilterBar } from '@/types/filter';
 import React from 'react';
 
-export type Filter = {
-  search: string;
-  year: number;
-  quadmester: number;
-  carrer: string;
-};
-
-interface Props {
-  setFilters: React.Dispatch<React.SetStateAction<Filter>>;
-  filters: Filter;
-}
-
-const carrers = ['Ingenieria en Sistemas'];
-
-const years = [
-  { label: 'Todos', value: 0 },
-  { label: '1º', value: 1 },
-  { label: '2º', value: 2 },
-  { label: '3º', value: 3 },
-  { label: '4º', value: 4 },
-  { label: '5º', value: 5 },
-];
-
-const quadmesters = [
-  { label: 'Todos', value: 0 },
-  { label: '1º', value: 1 },
-  { label: '2º', value: 2 },
-];
-
-const FilterBar: React.FC<Props> = ({ filters, setFilters }) => {
+const FilterBar: React.FC<PropsFilterBar> = ({ filters, setFilters }) => {
   return (
     <div className='flex flex-col gap-8 mb-4 lg:mb-8 w-full rounded-xl p-4 bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 border border-border/60'>
       <div className='p-[2px] rounded-xl from-primary  to-accent bg-gradient-to-l'>
@@ -37,7 +10,7 @@ const FilterBar: React.FC<Props> = ({ filters, setFilters }) => {
           className='relative w-full bg-zinc-900 flex justify-between items-center gap-2 border border-zinc-700 rounded-xl  transition-all duration-200'
           tabIndex={0}
         >
-          <div className='px-4 py-2 flex items-center'>
+          <div className='px-4 py-2 flex items-center w-full'>
             <svg width='20' height='20' className='mr-2' viewBox='0 0 24 24'>
               <path
                 className='stroke-foreground-muted'
@@ -75,7 +48,7 @@ const FilterBar: React.FC<Props> = ({ filters, setFilters }) => {
         <div className='flex items-start gap-2'>
           <span className='text-sm'>Carrera</span>
           <div className='flex gap-2'>
-            {carrers.map((carrer, i) => (
+            {CARRERS_FILTER.map((carrer, i) => (
               <div
                 key={carrer + i}
                 className={`cursor-pointer rounded-full px-4 font-medium flex gap-1 items-center border border-zinc-700 hover:ring-1 hover:ring-yellow-400 ${
@@ -92,7 +65,7 @@ const FilterBar: React.FC<Props> = ({ filters, setFilters }) => {
         <div className='flex items-start gap-2'>
           <span className='text-sm'>Cuatrimestre</span>
           <div className='flex gap-2'>
-            {quadmesters.map(({ label, value }) => (
+            {QUADMESTERS_FILTER.map(({ label, value }) => (
               <div
                 key={value}
                 className={`cursor-pointer rounded-full px-4 font-medium flex gap-1 items-center border border-zinc-700 hover:ring-1 hover:ring-yellow-400 ${
@@ -111,7 +84,7 @@ const FilterBar: React.FC<Props> = ({ filters, setFilters }) => {
         <div className='flex items-start gap-2'>
           <span className='text-sm'>Año</span>
           <div className='flex gap-2'>
-            {years.map(({ label, value }) => (
+            {YEARS_FILTER.map(({ label, value }) => (
               <div
                 key={value}
                 className={`cursor-pointer rounded-full px-4 font-medium flex gap-1 items-center border border-zinc-700 hover:ring-1 hover:ring-yellow-400 ${

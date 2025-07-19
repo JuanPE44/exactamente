@@ -1,13 +1,7 @@
-import type { Subject } from '@/types/subjects';
 import Card from './CardSubject';
-import type { Filter } from './FilterBar';
+import type { PropsListOfSubjects } from '@/types/filter';
 
-type Props = {
-  subjects: Subject[];
-  setFilters: React.Dispatch<React.SetStateAction<Filter>>;
-};
-
-function ListOfSubjects({ subjects, setFilters }: Props) {
+function ListOfSubjects({ subjects, setFilters }: PropsListOfSubjects) {
   return (
     <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8'>
       {subjects.length == 0 ? (
