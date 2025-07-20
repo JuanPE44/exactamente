@@ -23,6 +23,7 @@ const { subject } = Astro.props;
   </div>
   <HeaderSubject title={subject.title} year={subject.year} quadmester={subject.quadmester} />
   <InfoSubject
+    id={subject.id}
     description={subject.description}
     urlMoodle={subject.urlMoodle}
     urlPrograma={subject.urlPrograma}

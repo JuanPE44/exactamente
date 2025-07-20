@@ -4,6 +4,7 @@ import '@/styles/global.css';
 import '@fontsource-variable/rubik';
 import Footer from '@/components/common/Footer.astro';
 import ContainerPage from '@/components/common/ContainerPage.astro';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!doctype html>
@@ -14,6 +15,7 @@ import ContainerPage from '@/components/common/ContainerPage.astro';
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <title>Exactamente</title>
+    <ClientRouter />
   </head>
   <body class='font-rubik bg-primary-foreground relative scroll-smooth'>
     <div class='absolute w-full h-screen top-0'>

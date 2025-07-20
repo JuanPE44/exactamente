@@ -47,7 +47,7 @@ const FilterBar: React.FC<PropsFilterBar> = ({ filters, setFilters }) => {
       <div className='flex gap-6 items-start sm:items-center flex-col sm:flex-row text-foreground-muted'>
         <div className='flex items-start gap-2'>
           <span className='text-sm'>Carrera</span>
-          <div className='flex gap-2'>
+          <div className='flex gap-2 flex-wrap'>
             {CARRERS_FILTER.map((carrer, i) => (
               <div
                 key={carrer + i}
@@ -64,7 +64,7 @@ const FilterBar: React.FC<PropsFilterBar> = ({ filters, setFilters }) => {
 
         <div className='flex items-start gap-2'>
           <span className='text-sm'>Cuatrimestre</span>
-          <div className='flex gap-2'>
+          <div className='flex gap-2 flex-wrap'>
             {QUADMESTERS_FILTER.map(({ label, value }) => (
               <div
                 key={value}
@@ -83,7 +83,7 @@ const FilterBar: React.FC<PropsFilterBar> = ({ filters, setFilters }) => {
 
         <div className='flex items-start gap-2'>
           <span className='text-sm'>Año</span>
-          <div className='flex gap-2'>
+          <div className='flex gap-2 flex-wrap'>
             {YEARS_FILTER.map(({ label, value }) => (
               <div
                 key={value}

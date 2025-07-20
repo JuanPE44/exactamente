@@ -1,3 +1,7 @@
+---
+import ContainerLink from './ContainerLink.astro';
+---
+
 <header class='fixed left-1/2 -translate-x-1/2 top-0 z-50 w-full filter' id='blur-element'>
   <div class='relative w-full max-w-6xl 2xl:max-w-8xl mx-auto px-4 sm:px-10 md:px-12 lg:px-0'>
     <div class='flex h-16 items-center justify-between'>
@@ -46,15 +50,9 @@
       </div>
 
       <div class='flex items-center gap-4'>
-        <div class='sm:flex sm:gap-4'>
-          <a
-            class='rounded-xl hover:scale-105 transition-all duration-200 hover:sepia-50 bg-primary px-5 py-2.5 text-sm font-bold text-black shadow-sm'
-            href='#'
-          >
-            Subir Aporte
-          </a>
-        </div>
-
+        <ContainerLink url='#' class='hover:sepia-50 bg-primary text-primary-foreground font-bold'>
+          Subir Aporte
+        </ContainerLink>
         <div class='block md:hidden'>
           <button
             class='mobile-menu-button rounded-xl bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75'

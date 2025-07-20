@@ -1,0 +1,59 @@
+---
+import { type TypeResource } from '@/types/resource';
+import Resource from './Resource.astro';
+import ContainerLink from './ContainerLink.astro';
+import IconDocument from '@/assets/icons/IconDocument.astro';
+
+interface Props {
+  resources: TypeResource[];
+  type: string;
+}
+const { resources, type } = Astro.props;
+---
+
+<div class='grid grid-cols-1 gap-4 mt-4'>
+  {
+    !resources ? (
+      <div class='flex flex-col w-full px-6 py-10 rounded-xl bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 border border-border/60 overflow-hidden hover:border-zinc-700/80 text-center shadow-md'>
+        <h2 class='text-xl font-semibold text-zinc-100 mb-2'>Sin resultados</h2>
+        <p class='text-zinc-400 mb-4'>No se encontraron {type}es disponibles.</p>
+        <ContainerLink
+          url=''
+          class='border border-accent text-foreground w-max mx-auto mt-3 font-bold'
+        >
+          <div class='flex gap-2 items-center'>
+            <IconDocument size={20} />
+            <span> Subir {type} </span>
+          </div>
+        </ContainerLink>
+      </div>
+    ) : (
+      <>
+        {resources.map((resource) => {
+          const { date, downloads, from, mostRecent, size, title, type } = resource;
+          return (
+            <Resource
+              date={date}
+              downloads={downloads}
+              from={from}
+              mostRecent={mostRecent}
+              size={size}
+              title={title}
+              type={type}
+            />
+          );
+        })}
+        <ContainerLink
+          url=''
+          class='border border-accent text-foreground bg-gradient-to-br from-zinc-900/90 to-zinc-950/95  w-max mx-auto mt-5  font-bold'
+        >
+          <div class='flex gap-2 items-center px-2 justify-center'>
+            <IconDocument size={17} class='fill-foreground' />
+            <span> Subir {type} </span>
+          </div>
+        </ContainerLink>
+      </>
+    )
+  }
+  <div class='md:h-[50vh]'></div>
+</div>

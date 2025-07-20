@@ -24,6 +24,77 @@ export const DATABASE = {
             'Estructuras de Control',
             'Funciones',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2024-06-15',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.2 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Introducción a la Programación I - 2024',
+              },
+              {
+                date: '2023-11-20',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: false,
+                size: '0.9 MB',
+                type: 'Parcial',
+                title: 'Segundo Parcial Introducción a la Programación I - 2023',
+              },
+              {
+                date: '2023-06-10',
+                downloads: 40,
+                from: 'Alumno X',
+                mostRecent: false,
+                size: '1.1 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Introducción a la Programación I - 2023',
+              },
+            ],
+            finales: [
+              {
+                date: '2024-07-25',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.5 MB',
+                type: 'Final',
+                title: 'Examen Final Introducción a la Programación I - Julio 2024',
+              },
+              {
+                date: '2024-02-10',
+                downloads: 40,
+                from: 'Alumno Z',
+                mostRecent: false,
+                size: '1.3 MB',
+                type: 'Final',
+                title: 'Examen Final Introducción a la Programación I - Febrero 2024',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2024-05-30',
+                downloads: 40,
+                from: 'Alumno Y',
+                mostRecent: true,
+                size: '0.5 MB',
+                type: 'Resumen',
+                title: 'Resumen de Estructuras de Control y Funciones',
+              },
+              {
+                date: '2023-10-15',
+                downloads: 40,
+                from: 'Alumno P',
+                mostRecent: false,
+                size: '0.7 MB',
+                type: 'Resumen',
+                title: 'Resumen General Introducción a la Programación I',
+              },
+            ],
+          },
         },
         {
           id: 'introduccion-al-algebra',
@@ -49,6 +120,68 @@ export const DATABASE = {
             'Matrices',
             'Determinantes',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2024-06-20',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.0 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Introducción al Álgebra - 2024',
+              },
+              {
+                date: '2023-11-25',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: false,
+                size: '0.8 MB',
+                type: 'Parcial',
+                title: 'Segundo Parcial Introducción al Álgebra - 2023',
+              },
+            ],
+            finales: [
+              {
+                date: '2024-07-30',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.4 MB',
+                type: 'Final',
+                title: 'Examen Final Introducción al Álgebra - Julio 2024',
+              },
+              {
+                date: '2024-02-15',
+                downloads: 40,
+                from: 'Alumno R',
+                mostRecent: false,
+                size: '1.2 MB',
+                type: 'Final',
+                title: 'Examen Final Introducción al Álgebra - Febrero 2024',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2024-06-01',
+                downloads: 40,
+                from: 'Alumno S',
+                mostRecent: true,
+                size: '0.6 MB',
+                type: 'Resumen',
+                title: 'Resumen de Matrices y Determinantes',
+              },
+              {
+                date: '2023-09-20',
+                downloads: 40,
+                from: 'Alumno T',
+                mostRecent: false,
+                size: '0.4 MB',
+                type: 'Resumen',
+                title: 'Resumen de Lógica Proposicional y Conjuntos',
+              },
+            ],
+          },
         },
         {
           id: 'introduccion-a-los-sistemas-informaticos',
@@ -69,6 +202,50 @@ export const DATABASE = {
             'Arquitectura de Computadoras',
             'Representación de la Información',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2024-06-25',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '0.9 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Introducción a Sistemas Informáticos - 2024',
+              },
+            ],
+            finales: [
+              {
+                date: '2024-08-05',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.1 MB',
+                type: 'Final',
+                title: 'Examen Final Introducción a Sistemas Informáticos - Julio 2024',
+              },
+              {
+                date: '2024-03-01',
+                downloads: 40,
+                from: 'Alumno U',
+                mostRecent: false,
+                size: '1.0 MB',
+                type: 'Final',
+                title: 'Examen Final Introducción a Sistemas Informáticos - Marzo 2024',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2024-05-10',
+                downloads: 40,
+                from: 'Alumno V',
+                mostRecent: true,
+                size: '0.3 MB',
+                type: 'Resumen',
+                title: 'Resumen de Hardware y Arquitectura',
+              },
+            ],
+          },
         },
         {
           id: 'ingles',
@@ -89,6 +266,50 @@ export const DATABASE = {
             'Gramática Aplicada',
             'Comunicación en Entornos Globales',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2024-06-18',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '0.7 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Inglés - 2024',
+              },
+              {
+                date: '2023-11-15',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: false,
+                size: '0.6 MB',
+                type: 'Parcial',
+                title: 'Segundo Parcial Inglés - 2023',
+              },
+            ],
+            finales: [
+              {
+                date: '2024-07-28',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '0.8 MB',
+                type: 'Final',
+                title: 'Examen Final Inglés - Julio 2024',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2024-05-25',
+                downloads: 40,
+                from: 'Alumno W',
+                mostRecent: true,
+                size: '0.2 MB',
+                type: 'Resumen',
+                title: 'Vocabulario Técnico para Informática',
+              },
+            ],
+          },
         },
         {
           id: 'diseno-logico',
@@ -109,6 +330,50 @@ export const DATABASE = {
             'Circuitos Combinacionales',
             'Circuitos Secuenciales',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2024-11-10',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.1 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Diseño Lógico - 2024',
+              },
+              {
+                date: '2024-06-05',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: false,
+                size: '1.0 MB',
+                type: 'Parcial',
+                title: 'Segundo Parcial Diseño Lógico - 2023',
+              },
+            ],
+            finales: [
+              {
+                date: '2024-12-15',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.3 MB',
+                type: 'Final',
+                title: 'Examen Final Diseño Lógico - Diciembre 2024',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2024-10-01',
+                downloads: 40,
+                from: 'Alumno A',
+                mostRecent: true,
+                size: '0.5 MB',
+                type: 'Resumen',
+                title: 'Resumen de Álgebra de Boole y Compuertas',
+              },
+            ],
+          },
         },
         {
           id: 'introduccion-a-la-programacion-ii',
@@ -129,6 +394,41 @@ export const DATABASE = {
             'Algoritmos de Ordenamiento',
             'Eficiencia Algorítmica',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2024-11-12',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.3 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Introducción a la Programación II - 2024',
+              },
+            ],
+            finales: [
+              {
+                date: '2024-12-20',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.6 MB',
+                type: 'Final',
+                title: 'Examen Final Introducción a la Programación II - Diciembre 2024',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2024-10-05',
+                downloads: 40,
+                from: 'Alumno B',
+                mostRecent: true,
+                size: '0.7 MB',
+                type: 'Resumen',
+                title: 'Resumen de Estructuras de Datos Avanzadas',
+              },
+            ],
+          },
         },
         {
           id: 'lenguajes-formales-y-automatas',
@@ -149,6 +449,41 @@ export const DATABASE = {
             'Máquinas de Turing',
             'Clases de Complejidad (P, NP)',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2024-11-15',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.0 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Lenguajes Formales y Autómatas - 2024',
+              },
+            ],
+            finales: [
+              {
+                date: '2024-12-22',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.5 MB',
+                type: 'Final',
+                title: 'Examen Final Lenguajes Formales y Autómatas - Diciembre 2024',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2024-10-10',
+                downloads: 40,
+                from: 'Alumno C',
+                mostRecent: true,
+                size: '0.6 MB',
+                type: 'Resumen',
+                title: 'Resumen de Autómatas Finitos',
+              },
+            ],
+          },
         },
         {
           id: 'calculo-i',
@@ -169,6 +504,41 @@ export const DATABASE = {
             'Integrales Indefinidas',
             'Teorema Fundamental del Cálculo',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2024-11-18',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.2 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Cálculo I - 2024',
+              },
+            ],
+            finales: [
+              {
+                date: '2024-12-28',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.8 MB',
+                type: 'Final',
+                title: 'Examen Final Cálculo I - Diciembre 2024',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2024-10-15',
+                downloads: 40,
+                from: 'Alumno D',
+                mostRecent: true,
+                size: '0.8 MB',
+                type: 'Resumen',
+                title: 'Resumen de Derivadas y Aplicaciones',
+              },
+            ],
+          },
         },
         // Segundo Año
         {
@@ -190,6 +560,41 @@ export const DATABASE = {
             'Dispositivos de Entrada/Salida',
             'Ciclo de Instrucción',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2025-06-10',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.5 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Arquitectura de Computadoras I - 2025',
+              },
+            ],
+            finales: [
+              {
+                date: '2025-07-20',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.7 MB',
+                type: 'Final',
+                title: 'Examen Final Arquitectura de Computadoras I - Julio 2025',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2025-05-30',
+                downloads: 40,
+                from: 'Alumno E',
+                mostRecent: true,
+                size: '0.9 MB',
+                type: 'Resumen',
+                title: 'Resumen de CPU y Memoria',
+              },
+            ],
+          },
         },
         {
           id: 'analisis-y-diseno-de-algoritmos-i',
@@ -210,6 +615,41 @@ export const DATABASE = {
             'Programación Dinámica',
             'Algoritmos Voraces',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2025-06-12',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.4 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Análisis y Diseño de Algoritmos I - 2025',
+              },
+            ],
+            finales: [
+              {
+                date: '2025-07-22',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.6 MB',
+                type: 'Final',
+                title: 'Examen Final Análisis y Diseño de Algoritmos I - Julio 2025',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2025-05-01',
+                downloads: 40,
+                from: 'Alumno F',
+                mostRecent: true,
+                size: '0.8 MB',
+                type: 'Resumen',
+                title: 'Resumen de Complejidad Algorítmica (Big O)',
+              },
+            ],
+          },
         },
         {
           id: 'programacion-orientada-a-objetos',
@@ -235,6 +675,41 @@ export const DATABASE = {
             'Polimorfismo',
             'Interfaces y Abstracción',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2025-06-15',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.2 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Programación Orientada a Objetos - 2025',
+              },
+            ],
+            finales: [
+              {
+                date: '2025-07-25',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.5 MB',
+                type: 'Final',
+                title: 'Examen Final Programación Orientada a Objetos - Julio 2025',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2025-05-15',
+                downloads: 40,
+                from: 'Alumno G',
+                mostRecent: true,
+                size: '0.6 MB',
+                type: 'Resumen',
+                title: 'Resumen de Pilares de POO',
+              },
+            ],
+          },
         },
         {
           id: 'algebra-lineal',
@@ -255,6 +730,41 @@ export const DATABASE = {
             'Espacios Vectoriales',
             'Transformaciones Lineales',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2025-06-18',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.0 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Álgebra Lineal - 2025',
+              },
+            ],
+            finales: [
+              {
+                date: '2025-07-28',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.3 MB',
+                type: 'Final',
+                title: 'Examen Final Álgebra Lineal - Julio 2025',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2025-05-20',
+                downloads: 40,
+                from: 'Alumno H',
+                mostRecent: true,
+                size: '0.7 MB',
+                type: 'Resumen',
+                title: 'Resumen de Matrices y Vectores',
+              },
+            ],
+          },
         },
         {
           id: 'redes-de-computadoras-i',
@@ -275,6 +785,41 @@ export const DATABASE = {
             'Direccionamiento IP',
             'Enrutamiento y Conmutación',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2025-11-05',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.1 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Redes de Computadoras I - 2025',
+              },
+            ],
+            finales: [
+              {
+                date: '2025-12-10',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.4 MB',
+                type: 'Final',
+                title: 'Examen Final Redes de Computadoras I - Diciembre 2025',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2025-10-01',
+                downloads: 40,
+                from: 'Alumno I',
+                mostRecent: true,
+                size: '0.6 MB',
+                type: 'Resumen',
+                title: 'Resumen Modelo TCP/IP',
+              },
+            ],
+          },
         },
         {
           id: 'metodologias-de-desarrollo-de-software',
@@ -295,6 +840,41 @@ export const DATABASE = {
             'Gestión de Riesgos',
             'Entrega Continua',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2025-11-08',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.0 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Metodologías de Desarrollo de Software - 2025',
+              },
+            ],
+            finales: [
+              {
+                date: '2025-12-12',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.3 MB',
+                type: 'Final',
+                title: 'Examen Final Metodologías de Desarrollo de Software - Diciembre 2025',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2025-10-05',
+                downloads: 40,
+                from: 'Alumno J',
+                mostRecent: true,
+                size: '0.5 MB',
+                type: 'Resumen',
+                title: 'Resumen de Metodologías Ágiles',
+              },
+            ],
+          },
         },
         {
           id: 'analisis-y-diseno-de-algoritmos-ii',
@@ -315,6 +895,41 @@ export const DATABASE = {
             'Metaheurísticas',
             'Optimización Combinatoria',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2025-11-10',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.5 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Análisis y Diseño de Algoritmos II - 2025',
+              },
+            ],
+            finales: [
+              {
+                date: '2025-12-15',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.8 MB',
+                type: 'Final',
+                title: 'Examen Final Análisis y Diseño de Algoritmos II - Diciembre 2025',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2025-10-10',
+                downloads: 40,
+                from: 'Alumno K',
+                mostRecent: true,
+                size: '0.9 MB',
+                type: 'Resumen',
+                title: 'Resumen de Algoritmos de Grafos',
+              },
+            ],
+          },
         },
         {
           id: 'calculo-ii',
@@ -335,6 +950,41 @@ export const DATABASE = {
             'Integrales Múltiples',
             'Análisis Vectorial',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2025-11-12',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.3 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Cálculo II - 2025',
+              },
+            ],
+            finales: [
+              {
+                date: '2025-12-18',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.7 MB',
+                type: 'Final',
+                title: 'Examen Final Cálculo II - Diciembre 2025',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2025-10-15',
+                downloads: 40,
+                from: 'Alumno L',
+                mostRecent: true,
+                size: '0.8 MB',
+                type: 'Resumen',
+                title: 'Resumen de Cálculo Multivariable',
+              },
+            ],
+          },
         },
         // Tercer Año
         {
@@ -360,6 +1010,41 @@ export const DATABASE = {
             'Planificación de CPU',
             'Sincronización y Concurrencia',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2026-06-10',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.6 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Sistemas Operativos - 2026',
+              },
+            ],
+            finales: [
+              {
+                date: '2026-07-20',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.9 MB',
+                type: 'Final',
+                title: 'Examen Final Sistemas Operativos - Julio 2026',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2026-05-30',
+                downloads: 40,
+                from: 'Alumno M',
+                mostRecent: true,
+                size: '1.0 MB',
+                type: 'Resumen',
+                title: 'Resumen de Gestión de Procesos y Memoria',
+              },
+            ],
+          },
         },
         {
           id: 'base-de-datos-i',
@@ -380,6 +1065,41 @@ export const DATABASE = {
             'SQL (Structured Query Language)',
             'Normalización de Bases de Datos',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2026-06-12',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.4 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Base de Datos I - 2026',
+              },
+            ],
+            finales: [
+              {
+                date: '2026-07-22',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.7 MB',
+                type: 'Final',
+                title: 'Examen Final Base de Datos I - Julio 2026',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2026-05-01',
+                downloads: 40,
+                from: 'Alumno N',
+                mostRecent: true,
+                size: '0.8 MB',
+                type: 'Resumen',
+                title: 'Resumen de SQL Básico',
+              },
+            ],
+          },
         },
         {
           id: 'fisica-i',
@@ -400,6 +1120,41 @@ export const DATABASE = {
             'Momento Lineal y Angular',
             'Termodinámica Básica',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2026-06-15',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.2 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Física I - 2026',
+              },
+            ],
+            finales: [
+              {
+                date: '2026-07-25',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.5 MB',
+                type: 'Final',
+                title: 'Examen Final Física I - Julio 2026',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2026-05-15',
+                downloads: 40,
+                from: 'Alumno O',
+                mostRecent: true,
+                size: '0.7 MB',
+                type: 'Resumen',
+                title: 'Resumen de Mecánica Clásica',
+              },
+            ],
+          },
         },
         {
           id: 'lenguajes-y-paradigmas',
@@ -420,6 +1175,41 @@ export const DATABASE = {
             'Concurrencia y Paralelismo',
             'Diseño de Lenguajes de Programación',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2026-06-18',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.1 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Lenguajes y Paradigmas - 2026',
+              },
+            ],
+            finales: [
+              {
+                date: '2026-07-28',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.4 MB',
+                type: 'Final',
+                title: 'Examen Final Lenguajes y Paradigmas - Julio 2026',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2026-05-20',
+                downloads: 40,
+                from: 'Alumno P',
+                mostRecent: true,
+                size: '0.6 MB',
+                type: 'Resumen',
+                title: 'Resumen de Paradigmas de Programación',
+              },
+            ],
+          },
         },
         {
           id: 'programacion-web',
@@ -440,6 +1230,41 @@ export const DATABASE = {
             'APIs RESTful',
             'Seguridad Web',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2026-11-05',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.3 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Programación Web - 2026',
+              },
+            ],
+            finales: [
+              {
+                date: '2026-12-10',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.6 MB',
+                type: 'Final',
+                title: 'Examen Final Programación Web - Diciembre 2026',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2026-10-01',
+                downloads: 40,
+                from: 'Alumno Q',
+                mostRecent: true,
+                size: '0.9 MB',
+                type: 'Resumen',
+                title: 'Resumen de Frontend y Backend',
+              },
+            ],
+          },
         },
         {
           id: 'bases-de-datos-ii',
@@ -460,6 +1285,41 @@ export const DATABASE = {
             'Bases de Datos Distribuidas',
             'Bases de Datos NoSQL',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2026-11-08',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.5 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Bases de Datos II - 2026',
+              },
+            ],
+            finales: [
+              {
+                date: '2026-12-12',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.8 MB',
+                type: 'Final',
+                title: 'Examen Final Bases de Datos II - Diciembre 2026',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2026-10-05',
+                downloads: 40,
+                from: 'Alumno R',
+                mostRecent: true,
+                size: '1.0 MB',
+                type: 'Resumen',
+                title: 'Resumen de Bases de Datos NoSQL',
+              },
+            ],
+          },
         },
         {
           id: 'probabilidad-y-estadistica',
@@ -484,6 +1344,41 @@ export const DATABASE = {
             'Muestreo y Estimación',
             'Pruebas de Hipótesis',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2026-11-10',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.2 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Probabilidad y Estadística - 2026',
+              },
+            ],
+            finales: [
+              {
+                date: '2026-12-15',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.5 MB',
+                type: 'Final',
+                title: 'Examen Final Probabilidad y Estadística - Diciembre 2026',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2026-10-10',
+                downloads: 40,
+                from: 'Alumno S',
+                mostRecent: true,
+                size: '0.7 MB',
+                type: 'Resumen',
+                title: 'Resumen de Teoría de Probabilidad',
+              },
+            ],
+          },
         },
         {
           id: 'ingenieria-de-software-i',
@@ -504,6 +1399,41 @@ export const DATABASE = {
             'Pruebas de Software',
             'Gestión de la Configuración',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2026-11-12',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.3 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Ingeniería de Software I - 2026',
+              },
+            ],
+            finales: [
+              {
+                date: '2026-12-18',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.6 MB',
+                type: 'Final',
+                title: 'Examen Final Ingeniería de Software I - Diciembre 2026',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2026-10-15',
+                downloads: 40,
+                from: 'Alumno T',
+                mostRecent: true,
+                size: '0.8 MB',
+                type: 'Resumen',
+                title: 'Resumen de Modelado UML',
+              },
+            ],
+          },
         },
         // Cuarto Año
         {
@@ -525,6 +1455,41 @@ export const DATABASE = {
             'Toma de Decisiones Estratégicas',
             'Gestión de Recursos (Humanos y Financieros)',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2027-06-10',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.0 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Organización y Gestión Empresarial - 2027',
+              },
+            ],
+            finales: [
+              {
+                date: '2027-07-20',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.3 MB',
+                type: 'Final',
+                title: 'Examen Final Organización y Gestión Empresarial - Julio 2027',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2027-05-30',
+                downloads: 40,
+                from: 'Alumno U',
+                mostRecent: true,
+                size: '0.5 MB',
+                type: 'Resumen',
+                title: 'Resumen de Liderazgo y Gestión',
+              },
+            ],
+          },
         },
         {
           id: 'teoria-de-la-informacion',
@@ -545,6 +1510,41 @@ export const DATABASE = {
             'Capacidad de Canal',
             'Compresión de Datos',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2027-06-12',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.1 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Teoría de la Información - 2027',
+              },
+            ],
+            finales: [
+              {
+                date: '2027-07-22',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.4 MB',
+                type: 'Final',
+                title: 'Examen Final Teoría de la Información - Julio 2027',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2027-05-01',
+                downloads: 40,
+                from: 'Alumno V',
+                mostRecent: true,
+                size: '0.6 MB',
+                type: 'Resumen',
+                title: 'Resumen de Entropía y Codificación',
+              },
+            ],
+          },
         },
         {
           id: 'redes-de-computadoras-ii',
@@ -565,6 +1565,41 @@ export const DATABASE = {
             'Redes Definidas por Software (SDN)',
             'Virtualización de Redes (NFV)',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2027-06-15',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.4 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Redes de Computadoras II - 2027',
+              },
+            ],
+            finales: [
+              {
+                date: '2027-07-25',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.7 MB',
+                type: 'Final',
+                title: 'Examen Final Redes de Computadoras II - Julio 2027',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2027-05-15',
+                downloads: 40,
+                from: 'Alumno W',
+                mostRecent: true,
+                size: '0.9 MB',
+                type: 'Resumen',
+                title: 'Resumen de Seguridad en Redes',
+              },
+            ],
+          },
         },
         {
           id: 'fisica-ii',
@@ -585,6 +1620,41 @@ export const DATABASE = {
             'Óptica Geométrica',
             'Óptica Física',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2027-06-18',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.3 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Física II - 2027',
+              },
+            ],
+            finales: [
+              {
+                date: '2027-07-28',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.6 MB',
+                type: 'Final',
+                title: 'Examen Final Física II - Julio 2027',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2027-05-20',
+                downloads: 40,
+                from: 'Alumno X',
+                mostRecent: true,
+                size: '0.8 MB',
+                type: 'Resumen',
+                title: 'Resumen de Electromagnetismo',
+              },
+            ],
+          },
         },
         {
           id: 'calidad-de-software',
@@ -605,6 +1675,41 @@ export const DATABASE = {
             'Métricas de Software',
             'Modelos de Madurez (CMMI, ISO)',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2027-11-05',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.2 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Calidad de Software - 2027',
+              },
+            ],
+            finales: [
+              {
+                date: '2027-12-10',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.5 MB',
+                type: 'Final',
+                title: 'Examen Final Calidad de Software - Diciembre 2027',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2027-10-01',
+                downloads: 40,
+                from: 'Alumno Y',
+                mostRecent: true,
+                size: '0.7 MB',
+                type: 'Resumen',
+                title: 'Resumen de Pruebas de Software',
+              },
+            ],
+          },
         },
         {
           id: 'arquitectura-de-computadoras-ii',
@@ -625,6 +1730,41 @@ export const DATABASE = {
             'Computación en la Nube',
             'GPUs para Cómputo General',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2027-11-08',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.5 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Arquitectura de Computadoras II - 2027',
+              },
+            ],
+            finales: [
+              {
+                date: '2027-12-12',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.8 MB',
+                type: 'Final',
+                title: 'Examen Final Arquitectura de Computadoras II - Diciembre 2027',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2027-10-05',
+                downloads: 40,
+                from: 'Alumno Z',
+                mostRecent: true,
+                size: '1.0 MB',
+                type: 'Resumen',
+                title: 'Resumen de Paralelismo y Multiprocesadores',
+              },
+            ],
+          },
         },
         {
           id: 'fundamentos-de-la-ciencia-de-datos',
@@ -649,6 +1789,41 @@ export const DATABASE = {
             'Introducción a Machine Learning (Regresión, Clasificación)',
             'Herramientas de Ciencia de Datos (Python, R)',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2027-11-10',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.3 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Fundamentos de Ciencia de Datos - 2027',
+              },
+            ],
+            finales: [
+              {
+                date: '2027-12-15',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.6 MB',
+                type: 'Final',
+                title: 'Examen Final Fundamentos de Ciencia de Datos - Diciembre 2027',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2027-10-10',
+                downloads: 40,
+                from: 'Alumno A1',
+                mostRecent: true,
+                size: '0.8 MB',
+                type: 'Resumen',
+                title: 'Resumen de Introducción a Machine Learning',
+              },
+            ],
+          },
         },
         {
           id: 'compiladores-e-interpretes',
@@ -669,8 +1844,42 @@ export const DATABASE = {
             'Generación de Código Intermedio',
             'Optimización de Código',
           ],
+          resources: {
+            parciales: [
+              {
+                date: '2027-11-12',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.4 MB',
+                type: 'Parcial',
+                title: 'Primer Parcial Compiladores e Intérpretes - 2027',
+              },
+            ],
+            finales: [
+              {
+                date: '2027-12-18',
+                downloads: 40,
+                from: 'Cátedra',
+                mostRecent: true,
+                size: '1.7 MB',
+                type: 'Final',
+                title: 'Examen Final Compiladores e Intérpretes - Diciembre 2027',
+              },
+            ],
+            resumenes: [
+              {
+                date: '2027-10-15',
+                downloads: 40,
+                from: 'Alumno B1',
+                mostRecent: true,
+                size: '0.9 MB',
+                type: 'Resumen',
+                title: 'Resumen de Fases de un Compilador',
+              },
+            ],
+          },
         },
-        // Quinto Año (Example - add more as needed)
       ],
     },
   ],

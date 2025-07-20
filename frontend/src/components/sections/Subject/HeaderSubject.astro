@@ -1,4 +1,6 @@
 ---
+import HeaderContainer from '@/components/common/HeaderContainer.astro';
+
 interface Props {
   title: string;
   year: number;
@@ -7,15 +9,12 @@ interface Props {
 const { title, year, quadmester } = Astro.props;
 ---
 
-<header
-  class='rounded-xl overflow-hidden mt-6 relative border-border border'
-  style="background-image: url('/images/materia-3.png'); background-size: cover; background-position: rigth;"
->
-  <div class='flex flex-col gap-3 p-6 z-40 bg-primary-foreground/70'>
+<HeaderContainer urlImg='/images/materia-3.png'>
+  <div class='flex flex-col gap-3'>
     <h2 class='text-3xl sm:text-4xl font-bold text-white'>{title}</h2>
-    <div class='flex items-start gap-5 sm:items-center py-4 gap-8 flex-col sm:flex-row'>
+    <div class='flex items-start gap-5 sm:items-center py-4 sm:gap-8 flex-col sm:flex-row'>
       <div class='flex items-center gap-2'>
-        <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 16 16'
+        <svg width='20' height='20' viewBox='0 0 16 16'
           ><path
             class='fill-foreground-secondary'
             d='M16 6.28a1.23 1.23 0 0 0-.62-1.07l-6.74-4a1.27 1.27 0 0 0-1.28 0l-6.75 4a1.25 1.25 0 0 0 0 2.15l1.92 1.12v2.81a1.28 1.28 0 0 0 .62 1.09l4.25 2.45a1.28 1.28 0 0 0 1.24 0l4.25-2.45a1.28 1.28 0 0 0 .62-1.09V8.45l1.24-.73v2.72H16zm-3.73 5L8 13.74l-4.22-2.45V9.22l3.58 2.13a1.29 1.29 0 0 0 1.28 0l3.62-2.16zM8 10.27l-6.75-4L8 2.26l6.75 4z'
@@ -75,4 +74,4 @@ const { title, year, quadmester } = Astro.props;
       </div>
     </div>
   </div>
-</header>
+</HeaderContainer>

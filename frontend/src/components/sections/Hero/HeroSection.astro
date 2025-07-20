@@ -2,7 +2,7 @@
 import ContainerSection from '@/components/common/ContainerSection.astro';
 ---
 
-<ContainerSection id='hero' className='flex justify-center items-center py-28 '>
+<ContainerSection id='hero' className='flex justify-center items-center py-28 min-h-screen'>
   <div class='mx-auto max-w-5xl text-center'>
     <h1 class='text-4xl font-bold text-foreground sm:text-5xl'>
       Explora las Materias de
@@ -19,17 +19,15 @@ import ContainerSection from '@/components/common/ContainerSection.astro';
         class='flex items-center gap-2 duration-200 hover:scale-105 rounded-xl border border-primary bg-primary px-5 py-3 font-bold text-black shadow-sm transition-colors hover:sepia-50'
         href='./#subjects'
       >
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='20'
-          height='20'
-          class='animate-bounce relative -rotate-90'
-          viewBox='0 0 24 24'
-          ><path
-            fill='#000000'
-            d='M12 2a10 10 0 0 1 10 10a10 10 0 0 1-10 10A10 10 0 0 1 2 12A10 10 0 0 1 12 2m-5 8l5 5l5-5z'
-          ></path></svg
-        >
+        <svg width='20' height='20' class='mr-2' viewBox='0 0 24 24'>
+          <path
+            class='stroke-primary-foreground'
+            fill='none'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314'></path>
+        </svg>
         <span> Explorar Materias </span>
       </a>
 
