@@ -25,7 +25,7 @@ const subject = DATABASE.careers[0].subjects.filter((subject) => subject.id == i
     <HeaderResource title='Finales' subject={subject.title} urlImg='/images/materia-2.png'
       ><IconUniversity size={30} />
     </HeaderResource>
-    <ListOfResources resources={subject.resources.finales} />
+    <ListOfResources resources={subject.resources.finales} type='final' />
     <!--
       <div class='h-screen'></div>
      -->

@@ -24,7 +24,7 @@ const subject = DATABASE.careers[0].subjects.filter((subject) => subject.id == i
     <HeaderResource title='Resumenes' subject={subject.title} urlImg='/images/materia-2.png'
       ><IconPaper size={30} />
     </HeaderResource>
-    <ListOfResources resources={subject.resources.resumenes} />
+    <ListOfResources resources={subject.resources.resumenes} type='resumen' />
     <!--
       <div class='h-screen'></div>
      -->
