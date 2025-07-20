@@ -45,14 +45,15 @@ const { resources, type } = Astro.props;
         })}
         <ContainerLink
           url=''
-          class='border border-accent text-foreground w-max mx-auto mt-10 font-bold'
+          class='border border-accent text-foreground bg-gradient-to-br from-zinc-900/90 to-zinc-950/95  w-max mx-auto mt-5  font-bold'
         >
-          <div class='flex gap-2 items-center'>
-            <IconDocument size={20} />
+          <div class='flex gap-2 items-center px-2 justify-center'>
+            <IconDocument size={17} class='fill-foreground' />
             <span> Subir {type} </span>
           </div>
         </ContainerLink>
       </>
     )
   }
+  <div class='md:h-[50vh]'></div>
 </div>
