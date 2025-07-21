@@ -1,33 +1,36 @@
 ---
+import IconUniversity from '@/assets/icons/IconUniversity.astro';
+import Breadcrumb from '@/components/common/Breadcrumb.astro';
 import ContainerSection from '@/components/common/ContainerSection.astro';
 import HeaderResource from '@/components/common/HeaderResource.astro';
-import Layout from '@/layouts/Layout.astro';
-import IconPaper from '@/assets/icons/IconPaper.astro';
-import Breadcrumb from '@/components/common/Breadcrumb.astro';
-
-import { DATABASE } from '@/data/database';
 import ListOfResources from '@/components/common/ListOfResources.astro';
-import IconUniversity from '@/assets/icons/IconUniversity.astro';
+import { MATERIAS_SISTEMAS } from '@/data/materias';
+import Layout from '@/layouts/Layout.astro';
+import { getByIdFinales } from '@/services/finales';
+import type { Subject } from '@/types/subjects';
 
 export async function getStaticPaths() {
-  return DATABASE.careers[0].subjects.map((materia) => ({
-    params: { id: materia.id },
+  return MATERIAS_SISTEMAS.map((materia) => ({
+    params: { id: materia.url },
   }));
 }
 
 const { id } = Astro.params;
-const subject = DATABASE.careers[0].subjects.filter((subject) => subject.id == id)[0];
+const subject = MATERIAS_SISTEMAS.filter((subject) => subject.url == `/${id}`)[0] as Subject;
+
+const { data, error } = await getByIdFinales(subject.id);
 ---
 
 <Layout>
   <ContainerSection id='finales'>
-    <Breadcrumb url={`../${id}`} title={subject.title} />
-    <HeaderResource title='Finales' subject={subject.title} urlImg='/images/materia-2.png'
+    <Breadcrumb url={`..${subject.url}`} title={subject.title} />
+    <HeaderResource
+      title='Finales'
+      cantResource={data.length}
+      subject={subject.title}
+      urlImg='/images/materia-2.png'
       ><IconUniversity size={30} />
     </HeaderResource>
-    <ListOfResources resources={subject.resources.finales} type='final' />
-    <!--
-      <div class='h-screen'></div>
-     -->
+    <ListOfResources resources={data} error={error} type='final' />
   </ContainerSection>
 </Layout>

@@ -1,16 +1,16 @@
 ---
 import SubjectSection from '@/components/sections/Subject/SubjectSection.astro';
-import { DATABASE } from '@/data/database';
+import { MATERIAS_SISTEMAS } from '@/data/materias';
 import Layout from '@/layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  return DATABASE.careers[0].subjects.map((materia) => ({
-    params: { id: materia.id },
+  return MATERIAS_SISTEMAS.map((materia) => ({
+    params: { id: materia.url },
   }));
 }
 
 const { id } = Astro.params;
-const subject = DATABASE.careers[0].subjects.filter((subject) => subject.id == id);
+const subject = MATERIAS_SISTEMAS.filter((subject) => subject.url == `/${id}`);
 ---
 
 <Layout>

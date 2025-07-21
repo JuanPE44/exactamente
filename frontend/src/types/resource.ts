@@ -7,3 +7,10 @@ export interface TypeResource {
   type: string;
   title: string;
 }
+
+export type ResourceFetch = {
+  id: string;
+  idMateria: string;
+  title: string;
+  urlDrive: string;
+};

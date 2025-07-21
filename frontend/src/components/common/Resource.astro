@@ -3,128 +3,264 @@ import ContainerLink from './ContainerLink.astro';
 
 interface Props {
   title: string;
-  date: string;
+  urlDrive: string;
   type: string;
-  from: string;
-  downloads: number;
-  size: string;
   mostRecent: boolean;
 }
-const { title, date, downloads, from, size, type, mostRecent } = Astro.props;
+
+const { title, urlDrive, type, mostRecent } = Astro.props;
+const partesTitle = title.split('.');
+
+// Función para extraer el ID del archivo de Google Drive
+function extractDriveFileId(url: string): string | null {
+  const patterns = [/\/file\/d\/([a-zA-Z0-9-_]+)/, /id=([a-zA-Z0-9-_]+)/, /\/d\/([a-zA-Z0-9-_]+)/];
+
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match) return match[1];
+  }
+  return null;
+}
+
+// Generar URLs funcionales
+const fileId = extractDriveFileId(urlDrive);
+const previewUrl = fileId ? `https://drive.google.com/file/d/${fileId}/preview` : '#';
+const downloadUrl = fileId ? `https://drive.google.com/uc?export=download&id=${fileId}` : '#';
+const cardId = `card-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
 <div
-  class='flex flex-col p-6 bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 border border-border/60 rounded-xl'
+  id={cardId}
+  class='flex flex-col bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 border border-zinc-800/60 rounded-xl hover:border-zinc-700/80 transition-all duration-300 group overflow-hidden'
 >
-  <div class='flex justify-between flex-col-reverse sm:flex-row'>
-    <h5 class='font-bold text-foreground text-xl'>{title}</h5>
-    <div class='flex justify-between items-start mb-4'>
-      <div class='flex gap-2'>
-        <span
-          class='w-min py-2 px-4 bg-gradient-to-r from-yellow-500/15 to-yellow-600/15 border border-yellow-500/30 text-yellow-200 font-semibold rounded-full text-sm'
-          >{type}</span
-        ><span
-          class='w-min py-2 px-4 bg-gradient-to-r from-blue-500/15 to-blue-600/15 border border-blue-500/30 text-yellow-200 font-semibold rounded-full text-sm'
-          >PDF</span
-        >
+  <!-- Header de la card -->
+  <div class='p-6 pb-4'>
+    <div class='flex justify-between flex-col-reverse sm:flex-row'>
+      <h5 class='font-bold text-white text-xl group-hover:text-yellow-100 transition-colors'>
+        {partesTitle[0]}
+      </h5>
+      <div class='flex justify-between items-start mb-4'>
+        <div class='flex gap-2'>
+          <span
+            class='w-min py-2 px-4 bg-gradient-to-r capitalize from-yellow-500/15 to-yellow-600/15 border border-yellow-500/30 text-yellow-200 font-semibold rounded-full text-sm'
+          >
+            {type}
+          </span>
+          <span
+            class='w-min py-2 px-4 bg-gradient-to-r uppercase from-blue-500/15 to-blue-600/15 border border-blue-500/30 text-blue-200 font-semibold rounded-full text-sm'
+          >
+            {partesTitle[1]}
+          </span>
+        </div>
+        {
+          mostRecent && (
+            <p class='sm:hidden text-sm py-1 bg-emerald-900/50 border border-emerald-500/30 text-emerald-300 rounded-full px-3'>
+              Más reciente
+            </p>
+          )
+        }
       </div>
+    </div>
+  </div>
+
+  <!-- Vista previa (inicialmente oculta) -->
+  <div class='preview-container hidden'>
+    <div class='mx-6 mb-4'>
+      <div class='bg-zinc-800/50 rounded-xl border border-zinc-700/50 overflow-hidden'>
+        <!-- Contenedor del iframe -->
+        <div class='relative bg-zinc-900/50'>
+          <!-- Loading spinner -->
+          <div class='loading-spinner absolute inset-0 flex items-center justify-center'>
+            <div class='flex items-center gap-3 text-zinc-400'>
+              <div
+                class='w-6 h-6 border-2 border-zinc-600 border-t-yellow-400 rounded-full animate-spin'
+              >
+              </div>
+              <span class='text-sm'>Cargando vista previa...</span>
+            </div>
+          </div>
+
+          <!-- Iframe -->
+          <iframe
+            class='preview-iframe w-full h-96 opacity-0 transition-opacity duration-500'
+            frameborder='0'
+            onload={`handleIframeLoad('${cardId}')`}></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones de acción -->
+  <div class='px-6 pb-6'>
+    <div class='flex gap-2 justify-between items-end flex-col sm:flex-row'>
+      <div class='flex gap-3 items-center flex-col sm:flex-row w-full sm:w-min'>
+        <!-- Botón de Descarga -->
+        <ContainerLink
+          url={downloadUrl}
+          class='group/download w-full sm:w-max bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black font-bold flex items-center justify-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='20'
+            height='20'
+            viewBox='0 0 24 24'
+            class='group-hover/download:scale-110 transition-transform'
+          >
+            <path
+              fill='currentColor'
+              d='m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z'
+            ></path>
+          </svg>
+          Descargar
+        </ContainerLink>
+
+        <!-- Botón de Vista Previa -->
+        <button
+          onclick={`togglePreview('${cardId}', '${previewUrl}')`}
+          class='preview-toggle group/preview w-full sm:w-max bg-zinc-800/50 hover:bg-zinc-700/60 border border-zinc-700 hover:border-zinc-600 text-zinc-200 hover:text-white font-bold flex items-center justify-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95'
+          disabled={!fileId}
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='20'
+            height='20'
+            viewBox='0 0 24 24'
+            class='group-hover/preview:scale-110 transition-transform'
+          >
+            <path
+              fill='currentColor'
+              d='M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5'
+            ></path>
+          </svg>
+          <span class='button-text'>Vista Previa</span>
+        </button>
+      </div>
+
       {
         mostRecent && (
-          <p class='sm:hidden text-sm py-1 bg-green-950 text-green-600 rounded-full px-2'>
-            Mas reciente
+          <p class='hidden sm:flex text-sm py-2 px-4 bg-emerald-900/50 border border-emerald-500/30 text-emerald-300 rounded-full font-medium'>
+            Más reciente
           </p>
         )
       }
     </div>
   </div>
-  <div
-    class='flex gap-1 sm:gap-4 items-start sm:items-center pb-6 pt-2 sm:pt-0 font-medium flex-col sm:flex-row'
-  >
-    <div class='flex gap-4'>
-      <div class='flex gap-1 items-center'>
-        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'
-          ><path
-            class='fill-foreground-secondary'
-            d='M8 8.5c3.85 0 7 2.5 7 4.5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2c0-2 3.15-4.5 7-4.5M8 10c-1.61 0-3.064.526-4.092 1.234C2.798 12.001 2.5 12.733 2.5 13a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5c0-.267-.297-1-1.408-1.766C11.064 10.526 9.609 10 8 10m0-9a3.5 3.5 0 1 1 0 7a3.5 3.5 0 0 1 0-7m0 1.5a2 2 0 1 0 0 4a2 2 0 0 0 0-4'
-          ></path></svg
-        >
-        <span class='text-foreground-secondary'>
-          {from}
-        </span>
-      </div>
-
-      <div class='flex gap-1 items-center'>
-        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'
-          ><path
-            class='fill-foreground-secondary'
-            d='M8 14q-.425 0-.712-.288T7 13t.288-.712T8 12t.713.288T9 13t-.288.713T8 14m4 0q-.425 0-.712-.288T11 13t.288-.712T12 12t.713.288T13 13t-.288.713T12 14m4 0q-.425 0-.712-.288T15 13t.288-.712T16 12t.713.288T17 13t-.288.713T16 14M5 22q-.825 0-1.412-.587T3 20V6q0-.825.588-1.412T5 4h1V2h2v2h8V2h2v2h1q.825 0 1.413.588T21 6v14q0 .825-.587 1.413T19 22zm0-2h14V10H5zM5 8h14V6H5zm0 0V6z'
-          ></path></svg
-        >
-        <span class='text-foreground-secondary'>
-          {date}
-        </span>
-      </div>
-    </div>
-
-    <div class='flex gap-4'>
-      <div class='flex gap-1 items-center'>
-        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'
-          ><path
-            class='fill-foreground-muted'
-            d='m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z'
-          ></path></svg
-        >
-        <span class='text-foreground-muted'>
-          {downloads}
-        </span>
-      </div>
-
-      <div class='flex gap-1 items-center'>
-        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'
-          ><path
-            class='fill-foreground-muted'
-            d='M4 4a2 2 0 0 1 2-2h8a1 1 0 0 1 .707.293l5 5A1 1 0 0 1 20 8v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm13.586 4L14 4.414V8zM12 4H6v16h12V10h-5a1 1 0 0 1-1-1zm-4 9a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1m0 4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1'
-          ></path></svg
-        >
-        <span class='text-foreground-muted'>
-          {size}
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class='flex gap-2 justify-between items-end flex-col sm:flex-row'>
-    <div class='flex gap-2 items-center flex-col sm:flex-row w-full sm:w-min'>
-      <ContainerLink
-        url='#'
-        class='w-full sm:w-max hover:sepia-50 bg-primary text-primary-foreground font-bold flex items-center gap-1'
-      >
-        <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'
-          ><path
-            class='currentColor'
-            d='m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z'
-          ></path></svg
-        >
-        Descargar
-      </ContainerLink>
-      <ContainerLink
-        url='#'
-        class='w-full sm:w-max hover:sepia-50 text-foreground border border-foreground font-bold flex items-center gap-1'
-      >
-        <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'
-          ><path
-            fill='currentColor'
-            d='M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5'
-          ></path></svg
-        >
-        Vista Previa
-      </ContainerLink>
-    </div>
-    {
-      mostRecent && (
-        <p class='hidden sm:flex text-sm py-1 bg-green-950 text-green-600 rounded-full px-2'>
-          Mas reciente
-        </p>
-      )
-    }
-  </div>
 </div>
+
+<script>
+  // Estado para trackear qué cards tienen preview abierto
+  const previewStates = new Map();
+
+  // Función para toggle de la vista previa
+  function togglePreview(cardId: string, previewUrl?: string) {
+    const card = document.getElementById(cardId);
+    if (!card) return;
+
+    const previewContainer = card.querySelector('.preview-container');
+    const iframe = card.querySelector('.preview-iframe') as HTMLIFrameElement;
+    const button = card.querySelector('.preview-toggle');
+    const buttonText = button?.querySelector('.button-text');
+    const loadingSpinner = card.querySelector('.loading-spinner');
+
+    if (!previewContainer || !iframe || !button || !buttonText) return;
+
+    const isOpen = previewStates.get(cardId) || false;
+
+    if (!isOpen) {
+      // Abrir vista previa
+      if (previewUrl && previewUrl !== '#') {
+        // Mostrar container con animación
+        previewContainer.classList.remove('hidden');
+
+        // Pequeño delay para la animación
+        setTimeout(() => {
+          previewContainer.style.maxHeight = previewContainer.scrollHeight + 'px';
+          previewContainer.style.opacity = '1';
+        }, 10);
+
+        // Cargar iframe
+        iframe.src = previewUrl;
+
+        // Actualizar botón
+        buttonText.textContent = 'Ocultar Vista';
+        button.classList.add(
+          'bg-red-800/50',
+          'hover:bg-red-700/60',
+          'border-red-700',
+          'hover:border-red-600'
+        );
+        button.classList.remove(
+          'bg-zinc-800/50',
+          'hover:bg-zinc-700/60',
+          'border-zinc-700',
+          'hover:border-zinc-600'
+        );
+
+        previewStates.set(cardId, true);
+      }
+    } else {
+      // Cerrar vista previa
+      previewContainer.style.maxHeight = '0px';
+      previewContainer.style.opacity = '0';
+
+      setTimeout(() => {
+        previewContainer.classList.add('hidden');
+        iframe.src = '';
+        if (loadingSpinner) {
+          loadingSpinner.classList.remove('hidden');
+        }
+        iframe.classList.add('opacity-0');
+      }, 300);
+
+      // Restaurar botón
+      buttonText.textContent = 'Vista Previa';
+      button.classList.remove(
+        'bg-red-800/50',
+        'hover:bg-red-700/60',
+        'border-red-700',
+        'hover:border-red-600'
+      );
+      button.classList.add(
+        'bg-zinc-800/50',
+        'hover:bg-zinc-700/60',
+        'border-zinc-700',
+        'hover:border-zinc-600'
+      );
+
+      previewStates.set(cardId, false);
+    }
+  }
+
+  // Función para manejar la carga del iframe
+  function handleIframeLoad(cardId: string) {
+    const card = document.getElementById(cardId);
+    if (!card) return;
+
+    const iframe = card.querySelector('.preview-iframe');
+    const loadingSpinner = card.querySelector('.loading-spinner');
+
+    if (iframe && loadingSpinner) {
+      loadingSpinner.classList.add('hidden');
+      iframe.classList.remove('opacity-0');
+      iframe.classList.add('opacity-100');
+    }
+  }
+
+  // Hacer las funciones globales
+  (window as any).togglePreview = togglePreview;
+  (window as any).handleIframeLoad = handleIframeLoad;
+
+  // Estilos CSS adicionales para las animaciones
+  const style = document.createElement('style');
+  style.textContent = `
+    .preview-container {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    }
+  `;
+  document.head.appendChild(style);
+</script>
