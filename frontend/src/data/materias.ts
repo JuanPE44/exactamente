@@ -1,7 +1,7 @@
 export const MATERIAS_SISTEMAS = [
   {
     idCarrer: 'C1',
-    id: 'M1',
+    id: 'M3',
     title: 'Introducción a la Programación I',
     description:
       'Conceptos de algoritmo, proceso, programa. Concepto de programación imperativa (acciones y datos). Estructura de control (secuencia, selección, iteración). Pilas y Filas. Concepto de Variables. Tipos de datos simples y estructurados. Arreglos (una y más dimensiones). Estrategias de modularización, legibilidad, mantenibilidad, reusabilidad. Procedimientos y funciones. Parámetros formales y actuales. Algoritmos básicos de búsqueda, inserción, eliminación, ordenamiento. Utilización de técnicas y herramientas de aplicación en la ingeniería en sistemas de información.',
@@ -37,7 +37,7 @@ export const MATERIAS_SISTEMAS = [
   },
   {
     idCarrer: 'C1',
-    id: 'M3',
+    id: 'M80',
     title: 'Introducción a los Sistemas Informáticos',
     description:
       'Representación y codificación de información. Unidades de medida utilizadas en informática. Sistemas de representación de números enteros y números reales. Codificación de imágenes, audio y vídeo. Nociones de compresión de datos. Estructura de la computadora. Procesadores, memorias y dispositivos periféricos. Lenguaje de máquina. Lenguaje de ensamblado. Paradigmas de programación. Lenguajes de alto nivel. Definición y conceptos básicos de Sistema, Informática, Modelo y Sistema Informático. Ensambladores, compiladores e intérpretes. Conceptos de sistemas operativos, comunicación de datos y redes de computadoras. Utilización de técnicas y herramientas de aplicación en la ingeniería en sistemas de información.',
@@ -89,7 +89,7 @@ export const MATERIAS_SISTEMAS = [
     url: '/introduccion-a-la-programacion-ii',
     urlMoodle: 'https://moodle.ejemplo.edu.ar/course/view.php?id=prog2',
     urlPrograma: 'https://plan.ejemplo.edu.ar/prog2.pdf',
-    required: ['M1'],
+    required: ['M3'],
     correlatives: ['M11', 'M12', 'M13', 'M17'],
     quadmester: 2,
     year: 1,
@@ -134,7 +134,7 @@ export const MATERIAS_SISTEMAS = [
     url: '/arquitectura-de-computadoras-i',
     urlMoodle: 'https://moodle.ejemplo.edu.ar/course/view.php?id=arqcomp1',
     urlPrograma: 'https://plan.ejemplo.edu.ar/arqcomp1.pdf',
-    required: ['M3', 'M5'],
+    required: ['M80', 'M5'],
     correlatives: ['M16', 'M27'],
     quadmester: 1,
     year: 2,
@@ -172,7 +172,7 @@ export const MATERIAS_SISTEMAS = [
   },
   {
     idCarrer: 'C1',
-    id: 'M12',
+    id: 'M41',
     title: 'Algebra Lineal',
     description:
       'Espacios vectoriales. Subespacios. Bases y dimensión. Transformaciones lineales. Núcleo e imagen. Representación matricial de una transformación lineal. Valores y vectores propios. Diagonalización de matrices. Producto interno. Espacios euclídeos. Ortogonalización de Gram-Schmidt.',
@@ -581,3 +581,5 @@ export const MATERIAS_SISTEMAS = [
     themes: ['Práctica Profesional', 'Proyecto Integrador', 'Desarrollo de Software'],
   },
 ];
+
+export const MATERIAS_TUDAI = [];

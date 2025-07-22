@@ -1,12 +1,13 @@
 ---
-import HeaderContainer from './HeaderContainer.astro';
+import HeaderContainer from '@/components/common/HeaderContainer.astro';
 
 interface Props {
   urlImg: string;
   title: string;
   subject: string;
+  cantResource: number;
 }
-const { urlImg, title, subject } = Astro.props;
+const { urlImg, title, subject, cantResource } = Astro.props;
 ---
 
 <HeaderContainer urlImg={urlImg}>
@@ -19,6 +20,6 @@ const { urlImg, title, subject } = Astro.props;
   <p
     class='w-max mt-3 bg-gradient-to-r from-yellow-500/15 to-yellow-600/15 border border-yellow-500/30 text-yellow-200 font-semibold px-4 py-2 rounded-full'
   >
-    1 recursos disponibles
+    {cantResource} recursos disponibles
   </p>
 </HeaderContainer>

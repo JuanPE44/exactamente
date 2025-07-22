@@ -4,7 +4,6 @@ import '@/styles/global.css';
 import '@fontsource-variable/rubik';
 import Footer from '@/components/common/Footer.astro';
 import ContainerPage from '@/components/common/ContainerPage.astro';
-import { ClientRouter } from 'astro:transitions';
 ---
 
 <!doctype html>
@@ -15,20 +14,19 @@ import { ClientRouter } from 'astro:transitions';
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <title>Exactamente</title>
-    <ClientRouter />
   </head>
   <body class='font-rubik bg-primary-foreground relative scroll-smooth'>
     <div class='absolute w-full h-screen top-0'>
-      <img src='/images/fondo.png' class='object-left w-full h-full object-cover' />
+      <img src='/images/fondo.webp' class='object-left w-full h-full object-cover' />
       <div
         class='absolute -bottom-6 w-full h-96 bg-gradient-to-b from-transparent to-primary-foreground'
       >
       </div>
     </div>
-    <div class='absolute w-full h-screen bottom-0'>
-      <img src='/images/fondo.png' class='object-left w-full h-full object-cover' />
+    <div class='absolute w-full h-screen md:h-[50vh] bottom-0'>
+      <img src='/images/fondo.webp' class='object-left w-full h-full object-cover' />
       <div
-        class='absolute -top-6 w-full h-96 bg-gradient-to-b to-transparent from-primary-foreground'
+        class='absolute -top-6 w-full h-96 md:h-32 bg-gradient-to-b to-transparent from-primary-foreground'
       >
       </div>
     </div>

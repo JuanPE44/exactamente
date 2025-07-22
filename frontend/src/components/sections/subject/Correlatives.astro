@@ -1,6 +1,6 @@
 ---
 import ContainerSection from '@/components/common/ContainerSection.astro';
-import { DATABASE } from '@/data/database';
+import { MATERIAS_SISTEMAS } from '@/data/materias';
 interface Props {
   required: string[];
   correlatives: string[]; // IDs de las materias correlatives a la materia actual
@@ -24,6 +24,8 @@ const TIPOS_MATERIA = {
 };
 
 // Obtener la carrera de Sistemas
+
+/*
 const ingenieriaSistemas = DATABASE.careers.find(
   (career) => career.id === 'ingenieria-en-sistemas'
 );
@@ -31,9 +33,9 @@ const ingenieriaSistemas = DATABASE.careers.find(
 if (!ingenieriaSistemas) {
   throw new Error('Carrera de Ingeniería en Sistemas no encontrada en la base de datos.');
 }
-
+*/
 // Obtener la materia actual seleccionada
-const materiaActual = ingenieriaSistemas.subjects.find((subject) => subject.id === idMateria);
+const materiaActual = MATERIAS_SISTEMAS.find((subject) => subject.id === idMateria);
 
 if (!materiaActual) {
   throw new Error(`Materia con ID ${idMateria} no encontrada.`);
@@ -55,7 +57,7 @@ const PLAN_ESTUDIOS_MAPEADO: {
   };
 } = {};
 
-ingenieriaSistemas.subjects.forEach((subject) => {
+MATERIAS_SISTEMAS.forEach((subject) => {
   const year = subject.year;
   const quadmester = subject.quadmester;
 
@@ -175,7 +177,7 @@ function getEstiloMateria(tipo: string) {
         Array.from({ length: AÑOS_CARRERA }, (_, añoIndex) => {
           const año = añoIndex + 1;
           return (
-            <div key={año} class='space-y-6'>
+            <div class='space-y-6'>
               <div class='flex items-center gap-3'>
                 <div class='bg-gradient-to-r from-primary/80 to-accent  text-primary-foreground px-4 py-2 rounded-xl font-bold text-lg shadow-lg'>
                   {año}° Año
@@ -189,7 +191,7 @@ function getEstiloMateria(tipo: string) {
                   const materias = PLAN_ESTUDIOS_MAPEADO[año]?.[cuatrimestre] || [];
 
                   return (
-                    <div key={cuatrimestre} class='space-y-4'>
+                    <div class='space-y-4'>
                       <h4 class='text-gray-400 font-semibold text-lg'>
                         {cuatrimestre}° Cuatrimestre
                       </h4>
@@ -199,7 +201,6 @@ function getEstiloMateria(tipo: string) {
                           const estilos = getEstiloMateria(materia.type);
                           return (
                             <div
-                              key={materia.id}
                               class={`${estilos.bg} ${estilos.border} border-2 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg`}
                             >
                               <div class='flex items-start justify-between mb-3'>

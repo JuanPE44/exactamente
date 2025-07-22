@@ -1,19 +1,20 @@
 ---
-import { type TypeResource } from '@/types/resource';
-import Resource from './Resource.astro';
-import ContainerLink from './ContainerLink.astro';
+import { type ResourceFetch } from '@/types/resource';
 import IconDocument from '@/assets/icons/IconDocument.astro';
+import ContainerLink from '@/components/common/ContainerLink.astro';
+import CardResource from './cardResource/CardResource.astro';
 
 interface Props {
-  resources: TypeResource[];
+  resources: ResourceFetch[];
   type: string;
+  error: string | null;
 }
-const { resources, type } = Astro.props;
+const { resources, type, error } = Astro.props;
 ---
 
 <div class='grid grid-cols-1 gap-4 mt-4'>
   {
-    !resources ? (
+    resources.length == 0 ? (
       <div class='flex flex-col w-full px-6 py-10 rounded-xl bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 border border-border/60 overflow-hidden hover:border-zinc-700/80 text-center shadow-md'>
         <h2 class='text-xl font-semibold text-zinc-100 mb-2'>Sin resultados</h2>
         <p class='text-zinc-400 mb-4'>No se encontraron {type}es disponibles.</p>
@@ -29,19 +30,9 @@ const { resources, type } = Astro.props;
       </div>
     ) : (
       <>
-        {resources.map((resource) => {
-          const { date, downloads, from, mostRecent, size, title, type } = resource;
-          return (
-            <Resource
-              date={date}
-              downloads={downloads}
-              from={from}
-              mostRecent={mostRecent}
-              size={size}
-              title={title}
-              type={type}
-            />
-          );
+        {resources.map((resource, i) => {
+          const { title, urlDrive } = resource;
+          return <CardResource title={title} urlDrive={urlDrive} type={type} mostRecent={i == 0} />;
         })}
         <ContainerLink
           url=''

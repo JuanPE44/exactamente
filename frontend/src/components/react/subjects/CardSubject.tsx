@@ -53,7 +53,7 @@ export default function Card({ id, title, url, quadmester, year }: Props) {
 
           <div className='grid grid-cols-3 gap-3 w-full'>
             <a
-              href={`${id}/resumenes`}
+              href={`${url}/resumenes`}
               className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border-2 border-emerald-500/40 hover:border-emerald-400/60 text-emerald-200 hover:text-emerald-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'
             >
               <IconOpenBook className='fill-[currentColor]' />
@@ -63,7 +63,7 @@ export default function Card({ id, title, url, quadmester, year }: Props) {
             </a>
 
             <a
-              href={`${id}/parciales`}
+              href={`${url}/parciales`}
               className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-blue-500/20 to-blue-600/10 border-2 border-blue-500/40 hover:border-blue-400/60 text-blue-200 hover:text-blue-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'
             >
               <IconPaper className='fill-[currentColor]' />
@@ -74,7 +74,7 @@ export default function Card({ id, title, url, quadmester, year }: Props) {
             </a>
 
             <a
-              href={`${id}/finales`}
+              href={`${url}/finales`}
               className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-purple-500/20 to-purple-600/10 border-2 border-purple-500/40 hover:border-purple-400/60 text-purple-200 hover:text-purple-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'
             >
               <IconUniversity className='fill-[currentColor]' />
@@ -85,7 +85,7 @@ export default function Card({ id, title, url, quadmester, year }: Props) {
         </div>
         {/* CTA */}
         <a
-          href={`./${id}`}
+          href={`.${url}`}
           className='group/cta mt-2 w-full text-center rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 px-6 py-4 font-bold text-black transition-all duration-300 hover:shadow-yellow-500/30 hover:scale-[1.02] active:scale-[0.98]'
         >
           <span className='flex items-center justify-center gap-2'>
