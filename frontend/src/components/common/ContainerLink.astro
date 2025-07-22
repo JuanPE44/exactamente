@@ -3,14 +3,16 @@ interface Props {
   url: string;
   class?: string;
   target?: string;
+  rel?: string;
 }
-const { url, class: className, target } = Astro.props;
+const { url, rel, class: className, target } = Astro.props;
 ---
 
 <a
   id='link'
   target={target}
   href={url}
+  rel={rel}
   class={` rounded-xl hover:scale-105 transition-all duration-200  px-5 py-3 text-sm shadow-sm cursor-pointer  ${className}`}
 >
   <slot />

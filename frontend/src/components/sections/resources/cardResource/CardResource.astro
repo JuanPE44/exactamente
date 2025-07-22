@@ -1,5 +1,10 @@
 ---
-import ContainerLink from './ContainerLink.astro';
+import ContainerLink from '@/components/common/ContainerLink.astro';
+import { extractDriveFileId } from '@/lib/extractDriveFileId';
+import HeaderCardResource from './HeaderCardResource.astro';
+import IconDownload from '@/assets/icons/IconDownload.astro';
+import IconVisibility from '@/assets/icons/IconVisibility.astro';
+import IconVisibilityOff from '@/assets/icons/IconVisibilityOff.astro';
 
 interface Props {
   title: string;
@@ -9,20 +14,8 @@ interface Props {
 }
 
 const { title, urlDrive, type, mostRecent } = Astro.props;
-const partesTitle = title.split('.');
+const partsTitle = title.split('.');
 
-// Función para extraer el ID del archivo de Google Drive
-function extractDriveFileId(url: string): string | null {
-  const patterns = [/\/file\/d\/([a-zA-Z0-9-_]+)/, /id=([a-zA-Z0-9-_]+)/, /\/d\/([a-zA-Z0-9-_]+)/];
-
-  for (const pattern of patterns) {
-    const match = url.match(pattern);
-    if (match) return match[1];
-  }
-  return null;
-}
-
-// Generar URLs funcionales
 const fileId = extractDriveFileId(urlDrive);
 const previewUrl = fileId ? `https://drive.google.com/file/d/${fileId}/preview` : '#';
 const downloadUrl = fileId ? `https://drive.google.com/uc?export=download&id=${fileId}` : '#';
@@ -33,36 +26,12 @@ const cardId = `card-${Math.random().toString(36).substr(2, 9)}`;
   id={cardId}
   class='flex flex-col bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 border border-zinc-800/60 rounded-xl hover:border-zinc-700/80 transition-all duration-300 group overflow-hidden'
 >
-  <!-- Header de la card -->
-  <div class='p-6 pb-4'>
-    <div class='flex justify-between flex-col-reverse sm:flex-row'>
-      <h5 class='font-bold text-white text-xl group-hover:text-yellow-100 transition-colors'>
-        {partesTitle[0]}
-      </h5>
-      <div class='flex justify-between items-start mb-4'>
-        <div class='flex gap-2'>
-          <span
-            class='w-min py-2 px-4 bg-gradient-to-r capitalize from-yellow-500/15 to-yellow-600/15 border border-yellow-500/30 text-yellow-200 font-semibold rounded-full text-sm'
-          >
-            {type}
-          </span>
-          <span
-            class='w-min py-2 px-4 bg-gradient-to-r uppercase from-blue-500/15 to-blue-600/15 border border-blue-500/30 text-blue-200 font-semibold rounded-full text-sm'
-          >
-            {partesTitle[1]}
-          </span>
-        </div>
-        {
-          mostRecent && (
-            <p class='sm:hidden text-sm py-1 bg-emerald-900/50 border border-emerald-500/30 text-emerald-300 rounded-full px-3'>
-              Más reciente
-            </p>
-          )
-        }
-      </div>
-    </div>
-  </div>
-
+  <HeaderCardResource
+    fileFormat={partsTitle[1]}
+    title={partsTitle[0]}
+    mostRecent={mostRecent}
+    type={type}
+  />
   <!-- Vista previa (inicialmente oculta) -->
   <div class='preview-container hidden'>
     <div class='mx-6 mb-4'>
@@ -101,39 +70,19 @@ const cardId = `card-${Math.random().toString(36).substr(2, 9)}`;
           target='_blank'
           rel='noopener noreferrer'
         >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='20'
-            height='20'
-            viewBox='0 0 24 24'
-            class='group-hover/download:scale-110 transition-transform'
-          >
-            <path
-              fill='currentColor'
-              d='m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z'
-            ></path>
-          </svg>
+          <IconDownload size={20} class='fill-primary-foreground' />
           Descargar
         </ContainerLink>
 
         <!-- Botón de Vista Previa -->
         <button
           onclick={`togglePreview('${cardId}', '${previewUrl}')`}
-          class='preview-toggle group/preview w-full sm:w-max bg-zinc-800/50 hover:bg-zinc-700/60 border border-zinc-700 hover:border-zinc-600 text-zinc-200 hover:text-white font-bold flex items-center justify-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95'
+          class='preview-toggle cursor-pointer group/preview w-full sm:w-max bg-zinc-800/50 hover:bg-zinc-700/60 border border-zinc-700 hover:border-zinc-600 text-zinc-200 hover:text-white font-bold flex items-center justify-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95'
           disabled={!fileId}
         >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='20'
-            height='20'
-            viewBox='0 0 24 24'
-            class='group-hover/preview:scale-110 transition-transform'
-          >
-            <path
-              fill='currentColor'
-              d='M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5'
-            ></path>
-          </svg>
+          <IconVisibility size={20} class='icon-visibility fill-foreground' />
+          <IconVisibilityOff size={20} class='hidden icon-visibilityOff fill-foreground' />
+
           <span class='button-text'>Vista Previa</span>
         </button>
       </div>
@@ -158,9 +107,11 @@ const cardId = `card-${Math.random().toString(36).substr(2, 9)}`;
     const card = document.getElementById(cardId);
     if (!card) return;
 
-    const previewContainer = card.querySelector('.preview-container');
+    const previewContainer = card.querySelector('.preview-container') as HTMLElement;
     const iframe = card.querySelector('.preview-iframe') as HTMLIFrameElement;
     const button = card.querySelector('.preview-toggle');
+    const iconVisibility = card.querySelector('.icon-visibility');
+    const iconVisibilityOff = card.querySelector('.icon-visibilityOff');
     const buttonText = button?.querySelector('.button-text');
     const loadingSpinner = card.querySelector('.loading-spinner');
 
@@ -197,10 +148,15 @@ const cardId = `card-${Math.random().toString(36).substr(2, 9)}`;
           'border-zinc-700',
           'hover:border-zinc-600'
         );
+        iconVisibility?.classList.toggle('hidden');
+        iconVisibilityOff?.classList.toggle('hidden');
 
         previewStates.set(cardId, true);
       }
     } else {
+      iconVisibilityOff?.classList.toggle('hidden');
+      iconVisibility?.classList.toggle('hidden');
+
       // Cerrar vista previa
       previewContainer.style.maxHeight = '0px';
       previewContainer.style.opacity = '0';

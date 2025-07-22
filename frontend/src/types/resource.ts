@@ -14,3 +14,5 @@ export type ResourceFetch = {
   title: string;
   urlDrive: string;
 };
+
+export type StringResource = 'Parciales' | 'Resumenes' | 'Finales';

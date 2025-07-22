@@ -13,7 +13,7 @@ export async function fetchSheet<T = unknown>(
   } catch (err) {
     return {
       data: [],
-      error: err instanceof Error ? err.message : 'Error desconocido',
+      error: err instanceof Error ? err.message : null,
     };
   }
 }
