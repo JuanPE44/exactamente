@@ -1,6 +1,11 @@
 import IconOpenBook from '@/assets/icons/react/IconOpenBook';
 import IconPaper from '@/assets/icons/react/IconPaper';
 import IconUniversity from '@/assets/icons/react/IconUniversity';
+import ContainerLink from '../common/ContainerLink';
+import IconDownload from '@/assets/icons/react/IconDownload';
+import IconDocument from '@/assets/icons/react/IconDocument';
+import IconLink from '@/assets/icons/react/IconLink';
+import IconMoodle from '@/assets/icons/react/IconMoodle';
 
 type Props = {
   id: string;
@@ -11,6 +16,8 @@ type Props = {
 };
 
 export default function Card({ id, title, url, quadmester, year }: Props) {
+  const urlPrograma = '';
+  const urlMoodle = '';
   return (
     <article className='group rounded-xl bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 border border-border/60 overflow-hidden hover:border-zinc-700/80 transition-all duration-300 hover:shadow-2xl hover:shadow-black/20 flex flex-col '>
       {/* Header */}
@@ -51,60 +58,65 @@ export default function Card({ id, title, url, quadmester, year }: Props) {
             Recursos disponibles:
           </h4>
 
-          <div className='grid grid-cols-3 gap-3 w-full'>
-            <a
-              href={`${url}/resumenes`}
-              className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border-2 border-emerald-500/40 hover:border-emerald-400/60 text-emerald-200 hover:text-emerald-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'
+          <div className='flx flex-col space-y-3 w-full'>
+            <ContainerLink
+              url={`.${url}/resumenes`}
+              className='group/resource hover:scale-105 justify-between active:scale-95 grayscale-50 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 border border-emerald-500/40 hover:border-emerald-400/60 text-emerald-200 hover:text-emerald-100 font-semibold flex items-center gap-3 transition-all duration-200'
             >
-              <IconOpenBook className='fill-[currentColor]' />
-              <span className='text-sm group-hover/resource:font-bold transition-all'>
-                Resúmenes
-              </span>
-            </a>
+              <div className='flex items-center gap-2'>
+                <IconOpenBook size={20} className='fill-emerald-200' />
+                <span> Resumenes </span>
+              </div>
+              <IconLink size={20} />
+            </ContainerLink>
 
-            <a
-              href={`${url}/parciales`}
-              className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-blue-500/20 to-blue-600/10 border-2 border-blue-500/40 hover:border-blue-400/60 text-blue-200 hover:text-blue-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'
+            <ContainerLink
+              url={`.${url}/parciales`}
+              className='group/resource hover:scale-105 justify-between active:scale-95 grayscale-50 bg-gradient-to-br from-blue-500/20 to-blue-600/10 border-2 border-blue-500/40 hover:border-blue-400/60 text-blue-200 hover:text-blue-100 font-semibold flex items-center gap-3 transition-all duration-200'
             >
-              <IconPaper className='fill-[currentColor]' />
+              <div className='flex items-center gap-2'>
+                <IconDocument size={20} className='fill-blue-200' />
+                <span> Parciales </span>
+              </div>
+              <IconLink size={20} />
+            </ContainerLink>
 
-              <span className='text-sm group-hover/resource:font-bold transition-all'>
-                Parciales
-              </span>
-            </a>
-
-            <a
-              href={`${url}/finales`}
-              className='group/resource hover:scale-105 active:scale-95 grayscale-50 cursor-pointer aspect-square bg-gradient-to-br from-purple-500/20 to-purple-600/10 border-2 border-purple-500/40 hover:border-purple-400/60 text-purple-200 hover:text-purple-100 font-semibold rounded-xl flex items-center justify-center flex-col gap-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:ring-offset-2 focus:ring-offset-zinc-900'
+            <ContainerLink
+              url={`.${url}/finales?from=${url.slice(1)}`}
+              className='group/resource hover:scale-105 justify-between active:scale-95 grayscale-50 bg-gradient-to-br from-purple-500/20 to-purple-600/10 border-2 border-purple-500/40 hover:border-purple-400/60 text-purple-200 hover:text-purple-100 font-semibold flex items-center gap-3 transition-all duration-200'
             >
-              <IconUniversity className='fill-[currentColor]' />
+              <div className='flex items-center gap-2'>
+                <IconUniversity size={20} className='fill-purple-200' />
+                <span> Finales </span>
+              </div>
+              <IconLink size={20} />
+            </ContainerLink>
 
-              <span className='text-sm group-hover/resource:font-bold transition-all'>Finales</span>
-            </a>
+            <ContainerLink
+              url={urlMoodle}
+              target='_blank'
+              className='border border-foreground text-foreground font-bold flex justify-between items-center'
+            >
+              <div className='flex items-center gap-2'>
+                <IconMoodle size={20} />
+                <span> Moodle </span>
+              </div>
+              <IconLink size={20} />
+            </ContainerLink>
+
+            <ContainerLink
+              url={urlPrograma}
+              target='_blank'
+              className='border border-primary bg-primary font-bold flex justify-between items-center'
+            >
+              <div className='flex items-center gap-2'>
+                <IconDownload size={20} className='fill-primary-foreground' />
+                <span> Programa </span>
+              </div>
+              <IconLink size={20} />
+            </ContainerLink>
           </div>
         </div>
-        {/* CTA */}
-        <a
-          href={`.${url}`}
-          className='group/cta mt-2 w-full text-center rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 px-6 py-4 font-bold text-black transition-all duration-300 hover:shadow-yellow-500/30 hover:scale-[1.02] active:scale-[0.98]'
-        >
-          <span className='flex items-center justify-center gap-2'>
-            Ver Recursos
-            <svg
-              className='w-4 h-4 group-hover/cta:translate-x-1 transition-transform'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='m9 18 6-6-6-6'
-              />
-            </svg>
-          </span>
-        </a>
       </div>
     </article>
   );

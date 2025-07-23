@@ -1,7 +1,18 @@
 import Card from './CardSubject';
+import CardSubjectLoading from './CardSubjectLoading';
 import type { PropsListOfSubjects } from '@/types/filter';
 
-function ListOfSubjects({ subjects, setFilters }: PropsListOfSubjects) {
+function ListOfSubjects({ subjects, setFilters, loading }: PropsListOfSubjects) {
+  if (loading) {
+    return (
+      <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8'>
+        {Array.from({ length: 3 }).map((_, i) => (
+          <CardSubjectLoading key={i} />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8'>
       {subjects.length == 0 ? (

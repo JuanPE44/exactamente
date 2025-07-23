@@ -70,7 +70,6 @@ const ListOfResources: React.FC<Props> = ({ resources, type, error, loading = tr
           </ContainerLink>
         </>
       )}
-      <div className='md:h-[50vh]' />
     </div>
   );
 };
