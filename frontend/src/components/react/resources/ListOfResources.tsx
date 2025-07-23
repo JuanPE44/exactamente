@@ -37,7 +37,7 @@ const ListOfResources: React.FC<Props> = ({ resources, type, error, loading = tr
       {resources && resources.length == 0 ? (
         <div className='flex flex-col w-full px-6 py-10 rounded-xl bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 border border-border/60 overflow-hidden hover:border-zinc-700/80 text-center shadow-md'>
           <h2 className='text-xl font-semibold text-zinc-100 mb-2'>Sin resultados</h2>
-          <p className='text-zinc-400 mb-4'>No se encontraron {type}es disponibles.</p>
+          <p className='text-zinc-400 mb-4'>No se encontraron {type} disponibles.</p>
           <ContainerLink
             url=''
             className='border border-accent text-foreground w-max mx-auto mt-3 font-bold'
@@ -70,7 +70,6 @@ const ListOfResources: React.FC<Props> = ({ resources, type, error, loading = tr
           </ContainerLink>
         </>
       )}
-      <div className='md:h-[50vh]' />
     </div>
   );
 };

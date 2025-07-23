@@ -2,8 +2,8 @@
 import ContainerSection from '@/components/common/ContainerSection.astro';
 import HeaderSubject from '../subject/HeaderSubject.astro';
 import InfoSubject from './InfoSubject.astro';
-import Correlatives from './Correlatives.astro';
 import type { Subject } from '@/types/subjects';
+import CorrelativesComponent from '@/components/react/correlatives/CorrelativesSection';
 
 interface Props {
   subject: Subject;
@@ -29,9 +29,10 @@ const { subject } = Astro.props;
     urlPrograma={subject.urlPrograma}
     themes={subject.themes}
   />
-  <Correlatives
-    required={subject.required}
-    correlatives={subject.correlatives}
-    idMateria={subject.id}
+  <CorrelativesComponent
+    client:visible
+    title='Correlativas'
+    initialSelectedMateria={subject.id}
+    clickeable={false}
   />
 </ContainerSection>

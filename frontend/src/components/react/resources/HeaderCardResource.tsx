@@ -14,8 +14,8 @@ const ResourceHeader: React.FC<Props> = ({ title, type, mostRecent, fileFormat }
         </h5>
         <div className='flex justify-between items-start mb-4'>
           <div className='flex gap-2'>
-            <span className='w-min py-2 px-4 bg-gradient-to-r capitalize from-yellow-500/15 to-yellow-600/15 border border-yellow-500/30 text-yellow-200 font-semibold rounded-full text-sm'>
-              {type}
+            <span className='w-max py-2 px-4 bg-gradient-to-r capitalize from-yellow-500/15 to-yellow-600/15 border border-yellow-500/30 text-yellow-200 font-semibold rounded-full text-sm'>
+              {parseInt(title.split(' ')[1]) < 2024 ? 'Plan 2011' : 'Plan 2024'}
             </span>
             <span className='w-min py-2 px-4 bg-gradient-to-r uppercase from-blue-500/15 to-blue-600/15 border border-blue-500/30 text-blue-200 font-semibold rounded-full text-sm'>
               {fileFormat}
