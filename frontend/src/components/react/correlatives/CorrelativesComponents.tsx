@@ -103,7 +103,7 @@ const CorrelativesComponent = ({ initialSelectedMateria, clickeable, title }: Pr
   };
 
   return (
-    <div className=' text-white p-8' id='correlatives'>
+    <div className=' text-white' id='correlatives'>
       <div className='max-w-7xl mx-auto'>
         <div className='rounded-xl mt-10 lg:mt-20'>
           <div className='mb-12'>
