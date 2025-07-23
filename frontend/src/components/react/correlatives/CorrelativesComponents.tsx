@@ -1,5 +1,6 @@
 import { MATERIAS_SISTEMAS } from '@/data/materias';
-import React, { useState } from 'react';
+import { useCorrelatives } from '@/hooks/useCorrelatives';
+import { TIPOS_MATERIA, AÑOS_CARRERA, CUATRIMESTRES_POR_AÑO } from '@/constants/correlatives';
 
 interface Props {
   initialSelectedMateria: string;
@@ -8,98 +9,18 @@ interface Props {
 }
 
 const CorrelativesComponent = ({ initialSelectedMateria, clickeable, title }: Props) => {
-  const [selectedMateriaId, setSelectedMateriaId] = useState(initialSelectedMateria);
+  const {
+    setSelectedMateriaId,
+    materiaActual,
+    correlatives,
+    PLAN_ESTUDIOS_MAPEADO,
+    getEstiloMateria,
+  } = useCorrelatives(initialSelectedMateria);
 
-  // Constantes de configuración
-  const AÑOS_CARRERA = 5;
-  const CUATRIMESTRES_POR_AÑO = 2;
-
-  // Tipos de materias
-  const TIPOS_MATERIA = {
-    CURSADA: 'cursada',
-    CORRELATIVA: 'correlativa',
-    ACTUAL: 'actual',
-    DISPONIBLE: 'disponible',
-  };
-
-  // Obtener la materia actual seleccionada
-  const materiaActual = MATERIAS_SISTEMAS.find((subject) => subject.id === selectedMateriaId);
-
-  if (!materiaActual) {
-    return <div>Materia no encontrada</div>;
-  }
-
-  // Obtener correlativas (materias que requieren la actual)
-  const correlatives = MATERIAS_SISTEMAS.filter((materia) =>
-    materia.required.includes(selectedMateriaId)
-  ).map((materia) => materia.id);
-
-  // Mapear el plan de estudios
-  const PLAN_ESTUDIOS_MAPEADO = {};
-
-  MATERIAS_SISTEMAS.forEach((subject) => {
-    const year = subject.year;
-    const quadmester = subject.quadmester;
-
-    if (!PLAN_ESTUDIOS_MAPEADO[year]) {
-      PLAN_ESTUDIOS_MAPEADO[year] = {};
+  const handleMateriaClick = (materiaId: string) => {
+    if (clickeable) {
+      setSelectedMateriaId(materiaId);
     }
-    if (!PLAN_ESTUDIOS_MAPEADO[year][quadmester]) {
-      PLAN_ESTUDIOS_MAPEADO[year][quadmester] = [];
-    }
-
-    let type = TIPOS_MATERIA.DISPONIBLE;
-
-    if (subject.id === selectedMateriaId) {
-      type = TIPOS_MATERIA.ACTUAL;
-    } else if (materiaActual.required.includes(subject.id)) {
-      type = TIPOS_MATERIA.CURSADA;
-    } else if (correlatives.includes(subject.id)) {
-      type = TIPOS_MATERIA.CORRELATIVA;
-    }
-
-    PLAN_ESTUDIOS_MAPEADO[year][quadmester].push({
-      ...subject,
-      type: type,
-    });
-  });
-
-  // Función para obtener estilos según el tipo de materia
-  const getEstiloMateria = (tipo) => {
-    switch (tipo) {
-      case TIPOS_MATERIA.CURSADA:
-        return {
-          bg: 'bg-gradient-to-br from-orange-500/20 to-orange-600/10',
-          border: 'border-orange-500/40',
-          text: 'text-orange-200',
-          dot: 'bg-orange-400',
-        };
-      case TIPOS_MATERIA.CORRELATIVA:
-        return {
-          bg: 'bg-gradient-to-br from-red-500/20 to-red-600/10',
-          border: 'border-red-500/40',
-          text: 'text-red-200',
-          dot: 'bg-red-400',
-        };
-      case TIPOS_MATERIA.ACTUAL:
-        return {
-          bg: 'bg-gradient-to-br from-yellow-500/30 to-yellow-600/20',
-          border: 'border-yellow-500/60',
-          text: 'text-yellow-100',
-          dot: 'bg-yellow-400',
-        };
-      default:
-        return {
-          bg: 'bg-gradient-to-br from-gray-800/50 to-gray-900/50',
-          border: 'border-gray-700/50',
-          text: 'text-gray-300',
-          dot: 'bg-gray-500',
-        };
-    }
-  };
-
-  const handleMateriaClick = (materiaId) => {
-    setSelectedMateriaId(materiaId);
   };
 
   return (
@@ -110,7 +31,7 @@ const CorrelativesComponent = ({ initialSelectedMateria, clickeable, title }: Pr
             <h2 className='text-3xl font-bold text-white mb-4'>{title}</h2>
             <p className='text-gray-300 mb-8'>
               Diagrama completo de la carrera mostrando las correlativas de{' '}
-              <span className='text-yellow-400 font-semibold'>{materiaActual.title}</span>
+              <span className='text-yellow-400 font-semibold'>{materiaActual?.title}</span>
             </p>
 
             {/* Leyenda */}
@@ -209,13 +130,13 @@ const CorrelativesComponent = ({ initialSelectedMateria, clickeable, title }: Pr
               <div>
                 <h4 className='text-yellow-300 font-semibold mb-2'>Información General</h4>
                 <p className='text-gray-300 mb-2'>
-                  <strong>Nombre:</strong> {materiaActual.title}
+                  <strong>Nombre:</strong> {materiaActual?.title}
                 </p>
                 <p className='text-gray-300 mb-2'>
-                  <strong>Año:</strong> {materiaActual.year}°
+                  <strong>Año:</strong> {materiaActual?.year}°
                 </p>
                 <p className='text-gray-300 mb-2'>
-                  <strong>Cuatrimestre:</strong> {materiaActual.quadmester}°
+                  <strong>Cuatrimestre:</strong> {materiaActual?.quadmester}°
                 </p>
               </div>
               <div>
@@ -223,9 +144,9 @@ const CorrelativesComponent = ({ initialSelectedMateria, clickeable, title }: Pr
                 <div className='space-y-2'>
                   <div>
                     <p className='text-orange-300 font-medium'>Requiere para cursar:</p>
-                    {materiaActual.required.length > 0 ? (
+                    {materiaActual!.required.length > 0 ? (
                       <ul className='text-gray-300 text-sm ml-4'>
-                        {materiaActual.required.map((reqId) => {
+                        {materiaActual?.required.map((reqId) => {
                           const reqMateria = MATERIAS_SISTEMAS.find((m) => m.id === reqId);
                           return <li key={reqId}>• {reqMateria?.title || reqId}</li>;
                         })}
@@ -257,12 +178,12 @@ const CorrelativesComponent = ({ initialSelectedMateria, clickeable, title }: Pr
           {/* Nota explicativa */}
           <div className='mt-12 p-6 bg-blue-900/20 border border-blue-500/30 rounded-2xl'>
             <p className='text-blue-200 text-sm leading-relaxed'>
-              <span className='font-semibold text-blue-100'>Nota:</span> Haz clic en cualquier
-              materia para ver sus correlativas. Las materias marcadas en{' '}
-              <span className='text-orange-300 font-medium'>naranja</span> son requisitos para
+              <span className='font-semibold text-blue-100'>Nota:</span> Hace click en cualquier
+              materia para ver sus correlativas. Las materias marcadas en
+              <span className='text-orange-300 font-medium'> naranja</span> son requisitos para
               cursar la materia seleccionada (
-              <span className='text-yellow-400 font-semibold'>{materiaActual.title}</span>),
-              mientras que las marcadas en <span className='text-red-300 font-medium'>rojo</span>{' '}
+              <span className='text-yellow-400 font-semibold'>{materiaActual?.title}</span>),
+              mientras que las marcadas en <span className='text-red-300 font-medium'>rojo</span>
               requieren tener aprobada la materia seleccionada para ser cursadas.
             </p>
           </div>

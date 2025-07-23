@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import IconDownload from '@/assets/icons/react/IconDownload';
 import IconVisibility from '@/assets/icons/react/IconVisibility';
 import IconVisibilityOff from '@/assets/icons/react/IconVisibilityOff';
 import HeaderCardResource from './HeaderCardResource';
-import { extractDriveFileId } from '@/lib/extractDriveFileId';
 import ContainerLink from '../common/ContainerLink';
+import { usePreviewDrive } from '@/hooks/usePreviewDrive';
 
 interface Props {
   title: string;
@@ -15,29 +15,17 @@ interface Props {
 
 const CardResource: React.FC<Props> = ({ title, urlDrive, type, mostRecent }) => {
   const partsTitle = title.split('.');
-  const fileId = extractDriveFileId(urlDrive);
-  const previewUrl = fileId ? `https://drive.google.com/file/d/${fileId}/preview` : '#';
-  const downloadUrl = fileId ? `https://drive.google.com/uc?export=download&id=${fileId}` : '#';
 
-  const [previewOpen, setPreviewOpen] = useState(false);
-  const [iframeLoaded, setIframeLoaded] = useState(false);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-
-  const togglePreview = () => {
-    if (!fileId) return;
-    if (!previewOpen) {
-      if (iframeRef.current && iframeRef.current.src !== previewUrl) {
-        iframeRef.current.src = previewUrl;
-        setIframeLoaded(false);
-      }
-    } else {
-      if (iframeRef.current) {
-        iframeRef.current.src = '';
-        setIframeLoaded(false);
-      }
-    }
-    setPreviewOpen(!previewOpen);
-  };
+  const {
+    fileId,
+    previewUrl,
+    downloadUrl,
+    previewOpen,
+    iframeLoaded,
+    iframeRef,
+    togglePreview,
+    handleIframeLoad,
+  } = usePreviewDrive(urlDrive);
 
   return (
     <div className='flex flex-col bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 border border-zinc-800/60 rounded-xl hover:border-zinc-700/80 transition-all duration-300 group overflow-hidden'>
@@ -66,7 +54,7 @@ const CardResource: React.FC<Props> = ({ title, urlDrive, type, mostRecent }) =>
                   iframeLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
                 frameBorder='0'
-                onLoad={() => setIframeLoaded(true)}
+                onLoad={handleIframeLoad}
               ></iframe>
             </div>
           </div>
@@ -77,7 +65,6 @@ const CardResource: React.FC<Props> = ({ title, urlDrive, type, mostRecent }) =>
       <div className='px-6 pb-6'>
         <div className='flex gap-2 justify-between items-end flex-col sm:flex-row'>
           <div className='flex gap-3 items-center flex-col sm:flex-row w-full sm:w-min'>
-            {/* Descargar */}
             <ContainerLink
               url={downloadUrl}
               className='group/download w-full sm:w-max bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black font-bold flex items-center justify-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40'
@@ -88,7 +75,6 @@ const CardResource: React.FC<Props> = ({ title, urlDrive, type, mostRecent }) =>
               Descargar
             </ContainerLink>
 
-            {/* Vista previa */}
             <button
               onClick={togglePreview}
               className={`preview-toggle cursor-pointer group/preview w-full sm:w-max font-bold flex items-center justify-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 border ${

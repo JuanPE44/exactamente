@@ -15,7 +15,7 @@ const ResourceHeader: React.FC<Props> = ({ title, type, mostRecent, fileFormat }
         <div className='flex justify-between items-start mb-4'>
           <div className='flex gap-2'>
             <span className='w-min py-2 px-4 bg-gradient-to-r capitalize from-yellow-500/15 to-yellow-600/15 border border-yellow-500/30 text-yellow-200 font-semibold rounded-full text-sm'>
-              {type}
+              {type.slice(0, -2)}
             </span>
             <span className='w-min py-2 px-4 bg-gradient-to-r uppercase from-blue-500/15 to-blue-600/15 border border-blue-500/30 text-blue-200 font-semibold rounded-full text-sm'>
               {fileFormat}
