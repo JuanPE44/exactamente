@@ -16,4 +16,6 @@ export type PropsListOfSubjects = {
   subjects: Subject[];
   setFilters: React.Dispatch<React.SetStateAction<Filter>>;
   loading: boolean;
+  hasMore: boolean;
+  showMore: () => void;
 };

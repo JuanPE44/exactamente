@@ -9,7 +9,6 @@ export type Subject = {
   urlPrograma: string;
   correlatives: string[];
   required: string[];
-  themes: string[];
   quadmester: number;
   year: number;
 };

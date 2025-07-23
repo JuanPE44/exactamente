@@ -4,9 +4,12 @@ import { MATERIAS_SISTEMAS } from '@/data/materias';
 import { normalizeText } from '@/lib/normalizeText';
 import type { Filter } from '@/types/filter';
 
+const PAGE_SIZE = 9;
+
 export const useSubjects = () => {
   const [filters, setFilters] = useState<Filter>(INITIAL_FILTERS);
   const [filteredSubjects, setFilteredSubjects] = useState<typeof MATERIAS_SISTEMAS>([]);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,16 +24,27 @@ export const useSubjects = () => {
         .sort((a, b) => a.title.localeCompare(b.title));
 
       setFilteredSubjects(result);
+      setVisibleCount(PAGE_SIZE); // Reset visible count al cambiar filtros
       setLoading(false);
-    }, 500); // Simula 500ms de delay como si viniera de una API
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [filters]);
 
+  const visibleSubjects = filteredSubjects.slice(0, visibleCount);
+
+  const showMore = () => {
+    setVisibleCount((prev) => prev + PAGE_SIZE);
+  };
+
+  const hasMore = visibleCount < filteredSubjects.length;
+
   return {
     filters,
     setFilters,
-    filteredSubjects,
+    filteredSubjects: visibleSubjects,
     loading,
+    showMore,
+    hasMore,
   };
 };

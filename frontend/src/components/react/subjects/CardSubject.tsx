@@ -1,5 +1,4 @@
 import IconOpenBook from '@/assets/icons/react/IconOpenBook';
-import IconPaper from '@/assets/icons/react/IconPaper';
 import IconUniversity from '@/assets/icons/react/IconUniversity';
 import ContainerLink from '../common/ContainerLink';
 import IconDownload from '@/assets/icons/react/IconDownload';
@@ -36,7 +35,7 @@ export default function Card({ id, title, url, quadmester, year }: Props) {
         {' '}
         {/* Added flex-shrink-0 here */}
         {/* Info row */}
-        <div className='flex w-full justify-between items-center'>
+        <div className='flex w-full justify-between items-center flex-wrap gap-3'>
           <div className='text-zinc-400 flex items-center gap-2 bg-zinc-800/50 px-3 py-2 rounded-lg border border-zinc-700/50'>
             <svg className='h-4 w-4 text-yellow-400' viewBox='0 0 24 24'>
               <path
@@ -95,10 +94,19 @@ export default function Card({ id, title, url, quadmester, year }: Props) {
             <ContainerLink
               url={urlMoodle}
               target='_blank'
-              className='border border-foreground text-foreground font-bold flex justify-between items-center'
+              className={`${
+                urlMoodle.length == 0
+                  ? 'pointer-events-none grayscale-100 border-foreground-muted text-foreground-muted'
+                  : 'border-foreground text-foreground'
+              }  border  font-bold flex justify-between items-center`}
             >
               <div className='flex items-center gap-2'>
-                <IconMoodle size={20} />
+                <IconMoodle
+                  size={20}
+                  className={`${
+                    urlPrograma.length == 0 ? 'fill-foreground-muted' : 'fill-foreground'
+                  }`}
+                />
                 <span> Moodle </span>
               </div>
               <IconLink size={20} />
@@ -107,10 +115,19 @@ export default function Card({ id, title, url, quadmester, year }: Props) {
             <ContainerLink
               url={urlPrograma}
               target='_blank'
-              className='border border-primary bg-primary font-bold flex justify-between items-center'
+              className={`font-bold flex justify-between items-center border ${
+                urlPrograma.length == 0
+                  ? 'bg-gray-800 text-foreground-muted pointer-events-none grayscale-100 border-foreground-muted'
+                  : ' border-primary bg-primary '
+              }`}
             >
               <div className='flex items-center gap-2'>
-                <IconDownload size={20} className='fill-primary-foreground' />
+                <IconDownload
+                  size={20}
+                  className={`${
+                    urlPrograma.length == 0 ? 'fill-foreground-muted' : 'fill-primary-foreground'
+                  }`}
+                />
                 <span> Programa </span>
               </div>
               <IconLink size={20} />

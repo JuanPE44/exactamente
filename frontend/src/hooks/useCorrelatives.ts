@@ -7,7 +7,7 @@ import type { TipoMateria } from '@/types/subjects';
 export function useCorrelatives(initialSelectedId: string) {
   const [selectedMateriaId, setSelectedMateriaId] = useState(initialSelectedId);
 
-  const materiaActual = useMemo(
+  const subjectCurrent = useMemo(
     () => MATERIAS_SISTEMAS.find((m) => m.id === selectedMateriaId),
     [selectedMateriaId]
   );
@@ -30,7 +30,7 @@ export function useCorrelatives(initialSelectedId: string) {
 
       if (subject.id === selectedMateriaId) {
         type = TIPOS_MATERIA.ACTUAL;
-      } else if (materiaActual?.required.includes(subject.id)) {
+      } else if (subjectCurrent?.required.includes(subject.id)) {
         type = TIPOS_MATERIA.REQUERIDA;
       } else if (correlatives.includes(subject.id)) {
         type = TIPOS_MATERIA.CORRELATIVA;
@@ -43,9 +43,9 @@ export function useCorrelatives(initialSelectedId: string) {
     });
 
     return plan;
-  }, [MATERIAS_SISTEMAS, selectedMateriaId, materiaActual, correlatives]);
+  }, [MATERIAS_SISTEMAS, selectedMateriaId, subjectCurrent, correlatives]);
 
-  const getEstiloMateria = (tipo: string) => {
+  const getStyleSubject = (tipo: string) => {
     switch (tipo) {
       case TIPOS_MATERIA.REQUERIDA:
         return {
@@ -70,8 +70,8 @@ export function useCorrelatives(initialSelectedId: string) {
         };
       default:
         return {
-          bg: 'bg-gradient-to-br from-gray-800/50 to-gray-900/50',
-          border: 'border-gray-700/50',
+          bg: 'bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 ',
+          border: 'border-zinc-800/60',
           text: 'text-gray-300',
           dot: 'bg-gray-500',
         };
@@ -81,9 +81,9 @@ export function useCorrelatives(initialSelectedId: string) {
   return {
     selectedMateriaId,
     setSelectedMateriaId,
-    materiaActual,
+    subjectCurrent,
     correlatives,
     PLAN_ESTUDIOS_MAPEADO,
-    getEstiloMateria,
+    getStyleSubject,
   };
 }
