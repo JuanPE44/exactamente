@@ -39,7 +39,7 @@ const ListOfResources: React.FC<Props> = ({ resources, type, error, loading = tr
           <h2 className='text-xl font-semibold text-zinc-100 mb-2'>Sin resultados</h2>
           <p className='text-zinc-400 mb-4'>No se encontraron {type} disponibles.</p>
           <ContainerLink
-            url=''
+            url='/upload'
             className='border border-accent text-foreground w-max mx-auto mt-3 font-bold'
           >
             <div className='flex gap-2 items-center'>
@@ -60,7 +60,7 @@ const ListOfResources: React.FC<Props> = ({ resources, type, error, loading = tr
             />
           ))}
           <ContainerLink
-            url=''
+            url='/upload'
             className='border border-accent text-foreground bg-gradient-to-br from-zinc-900/90 to-zinc-950/95 w-max mx-auto mt-5 font-bold'
           >
             <div className='flex gap-2 items-center px-2 justify-center'>

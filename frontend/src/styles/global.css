@@ -81,3 +81,15 @@
   animation: shimmer 2s ease-in-out infinite;
   background-size: 200% 100%;
 }
+
+select {
+  background-color: #111;
+  color: #fff;
+  font-weight: bold;
+}
+
+select option {
+  color: white;
+  background-color: black;
+  font-weight: bold;
+}
