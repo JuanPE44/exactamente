@@ -17,16 +17,20 @@ import ContainerPage from '@/components/common/ContainerPage.astro';
   </head>
   <body class='font-rubik bg-primary-foreground relative scroll-smooth'>
     <div class='absolute w-full h-screen top-0'>
-      <img src='/images/fondo.png' class='object-left w-full h-full object-cover' />
+      <img src='/images/fondo.webp' class='object-left w-full h-full object-cover' />
       <div
         class='absolute -bottom-6 w-full h-96 bg-gradient-to-b from-transparent to-primary-foreground'
       >
       </div>
     </div>
-    <div class='absolute w-full h-screen bottom-0'>
-      <img src='/images/fondo.png' class='object-left w-full h-full object-cover' />
+    <div class='absolute w-full h-screen md:h-[50vh] bottom-0'>
+      <img src='/images/fondo.webp' class='object-left w-full h-full object-cover' />
       <div
-        class='absolute -top-6 w-full h-96 bg-gradient-to-b to-transparent from-primary-foreground'
+        class='absolute -top-96 md:-top-32 w-full h-96 md:h-32 bg-gradient-to-b from-transparent to-primary-foreground'
+      >
+      </div>
+      <div
+        class='absolute top-0 w-full h-96 md:h-32 bg-gradient-to-b to-transparent from-primary-foreground'
       >
       </div>
     </div>
