@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { INITIAL_FILTERS } from '@/constants/Filter';
 import { MATERIAS_SISTEMAS } from '@/data/materias';
-import { normalizeText } from '@/lib/normalizeText';
+import { normalizeText } from '@/utils/normalizeText';
 import type { Filter } from '@/types/filter';
 
 const PAGE_SIZE = 9;

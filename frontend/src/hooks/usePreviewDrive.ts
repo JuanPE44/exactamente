@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { extractDriveFileId } from '@/lib/extractDriveFileId';
+import { extractDriveFileId } from '@/utils/extractDriveFileId';
 
 export const usePreviewDrive = (urlDrive: string) => {
   const fileId = extractDriveFileId(urlDrive);
